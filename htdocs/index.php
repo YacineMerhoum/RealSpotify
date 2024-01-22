@@ -16,13 +16,13 @@
 
     <form class="d-flex" action="" method="post">
       <!-- inscription  -->
-      <button class="btn btn-outline fs-5 " type="submit">S'inscrire</button>
+      <button class="btn btn-outline fs-5 subscribe " type="submit">S'inscrire</button>
     </form>
 
 
     <form class="d-flex" action="" method="post">
       <!-- connexion session  -->
-      <button type="button" class="btn btn-light fs-5">Connexion</button>
+      <button type="submit login" class="btn btn-light fs-5">Connexion</button>
 
     </form>
   </div>
