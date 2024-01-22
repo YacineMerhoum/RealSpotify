@@ -1,6 +1,8 @@
 <?php
+
 session_start();
 include "./config/verif_superglobal.php";
+
 require_once "./config/connexion.php";
 ?>
 
@@ -27,7 +29,7 @@ require_once "./config/connexion.php";
 <!-- Section pour connnexion -->
 <section class="sectionlog container">
     <div class="text-center">
-        <h1 class="text-white ">Créer votre compte</h1>
+        <h1 class="text-white ">Connectez-vous</h1>
     </div>
 
 <!-- connection formulaire -->

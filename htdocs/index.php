@@ -1,5 +1,5 @@
 <?php
-include "./config/verif_superglobal.php";
+// include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 ?>
 
@@ -19,22 +19,48 @@ require_once "./config/connexion.php";
         <img class="logo" src="./images/spotify.png">
     </a>
 
-    <form class="d-flex" action="" method="post">
+    <a href="./register.php">
       <!-- inscription  -->
       <button class="btn btn-outline fs-5 subscribe " type="submit">S'inscrire</button>
-    </form>
+</a>
 
 
-    <form class="d-flex" action="./pagelogin.php" method="post">
+    <a href="./pagelogin.php">
       <!-- connexion session  -->
-      <button type="submit login" class="btn btn-light fs-5">Connexion</button>
+      <button type="submit login" class="btn btn-light fs-5 login">Connexion</button>
 
-    </form>
+</a>
   </div>
 </nav>
 </header>
-
 <body>
+
+<div class="container text-center">
+  <div class="row justify-content-start">
+    <div class="col-2 row justify-content-start">
+       <!-- One of two columns -->
+       <div class="list-group">
+ 
+  <button type="button" class="list-group-item list-group-item-action">A second button item</button>
+  <button type="button" class="list-group-item list-group-item-action">A third button item</button>
+  <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
+  
+</div>
+       
+      
+    </div>
+    <div class="col-10">
+      <!-- One of two columns -->
+
+
+
+
+    </div>
+  </div>
+
+
+
+
    
 
 
