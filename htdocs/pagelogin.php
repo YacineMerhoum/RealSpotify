@@ -15,7 +15,7 @@ require_once "./config/connexion.php";
 </head>
 <body>
 <header>
-<nav class="navbar  nav">
+<nav class="navbar  nav ">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php" alt="menu">
         <img class="logo" src="./images/spotify.png">
@@ -24,20 +24,20 @@ require_once "./config/connexion.php";
 </nav>
 </header>
 <!-- Section pour connnexion -->
-<section class="sectionlog">
+<section class="sectionlog container">
     <div class="text-center">
         <h1 class="text-white ">Créer votre compte</h1>
     </div>
 
 <!-- connection formulaire -->
     <form action="" method="post">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
+  <div class="mb-3 text-center">
+    <label for="exampleInputEmail1" class="form-label text-white">Adresse mail</label>
     <input type="email" class="form-control" name="mail">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div id="emailHelp" class="form-text text-secondary">Fais péter le son bébé</div>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label text-white" name="password">Password</label>
+  <div class="mb-3 text-center">
+    <label for="exampleInputPassword1" class="form-label text-white" name="password">Mot de passe</label>
     <input type="password" class="form-control" >
   </div>
   

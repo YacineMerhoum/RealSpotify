@@ -26,19 +26,35 @@ body {
 
 .sectionlog {
     background-color: #302e2e8a;
-    width: 90vh;
-    height: 85vh;
-    margin-top: 2%;
-    margin-left: 26%;
+    width: 50%;
+    height: 90%;
+    margin-top: 10%;
+    margin-left: 25%;
+    border-radius: 4%;
+    padding: 50px;
+    
 
 }
 .bouton {
     background-color: #1ed760;
     height: 60px;
     width: 60%;
+    margin-left: 20%;
+    border-radius: 5%;
 }
 .bouton:hover {
     background-color: #1ed760;
     height: 62px;
-    width: 62%;
+    width: 61%;
+    border-radius: 5%;
+    
+}
+
+.form-control{
+    width: 60%;
+    font-size: 25px;
+    margin-left: 20%;
+    background-color: gray;
+    
+    
 }
