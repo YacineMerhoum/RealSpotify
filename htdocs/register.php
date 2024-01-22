@@ -26,7 +26,7 @@ require_once "./config/connexion.php";
 <!-- Section pour connnexion -->
 <section class="sectionlog container">
     <div class="text-center">
-        <h1 class="text-white ">Connectez-vous</h1>
+        <h1 class="text-white ">Inscription</h1>
     </div>
 
 <!-- connection formulaire -->
@@ -34,14 +34,14 @@ require_once "./config/connexion.php";
   <div class="mb-3 text-center">
     <label for="exampleInputEmail1" class="form-label text-white">Adresse mail</label>
     <input type="email" class="form-control" name="mail">
-    <div id="emailHelp" class="form-text text-secondary">Fais péter le son bébé</div>
+    <div id="emailHelp" class="form-text text-secondary">Tu ne vas pas le regretter</div>
   </div>
   <div class="mb-3 text-center">
     <label for="exampleInputPassword1" class="form-label text-white" name="password">Mot de passe</label>
     <input type="password" class="form-control" >
   </div>
   
-  <button type="submit" class="btn btn- bouton mt-5 ">Connexion</button>
+  <button type="submit" class="btn btn- bouton mt-5 ">S'inscrire</button>
 </form>
 
 
