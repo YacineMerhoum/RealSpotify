@@ -40,7 +40,7 @@ require_once "./config/connexion.php";
     <label for="exampleInputPassword1" class="form-label text-white" name="password">Mot de passe</label>
     <input type="password" class="form-control" >
   </div>
-  
+
   <button type="submit" class="btn btn- bouton mt-5 ">S'inscrire</button>
 </form>
 
@@ -51,7 +51,5 @@ require_once "./config/connexion.php";
 
 </section>
 
-    
-    
 </body>
 </html>

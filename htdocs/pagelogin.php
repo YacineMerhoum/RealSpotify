@@ -1,5 +1,8 @@
 <?php
-// include "./config/verif_superglobal.php";
+
+session_start();
+include "./config/verif_superglobal.php";
+
 require_once "./config/connexion.php";
 ?>
 
@@ -30,10 +33,10 @@ require_once "./config/connexion.php";
     </div>
 
 <!-- connection formulaire -->
-    <form action="" method="post">
+    <form action="./process/login.php" method="post">
   <div class="mb-3 text-center">
     <label for="exampleInputEmail1" class="form-label text-white">Adresse mail</label>
-    <input type="email" class="form-control" name="mail">
+    <input type="text" class="form-control" name="mail">
     <div id="emailHelp" class="form-text text-secondary">Fais péter le son bébé</div>
   </div>
   <div class="mb-3 text-center">
