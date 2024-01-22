@@ -1,3 +1,9 @@
+<?php
+include "./config/verif_superglobal.php";
+require_once "./config/connexion.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
