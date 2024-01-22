@@ -12,18 +12,20 @@ body {
 }
 .subscribe {
     color:gray;
-    
 
 }
 
 .subscribe:hover{
     color: white;
     
-
-
 }
-
 
 .logo {
     width: 15%;
+}
+
+.sectionlog {
+    background-color: #302e2e8a;
+    
+
 }

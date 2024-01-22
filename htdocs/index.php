@@ -20,7 +20,7 @@
     </form>
 
 
-    <form class="d-flex" action="" method="post">
+    <form class="d-flex" action="./pagelogin.php" method="post">
       <!-- connexion session  -->
       <button type="submit login" class="btn btn-light fs-5">Connexion</button>
 
