@@ -39,13 +39,13 @@ require_once "./config/connexion.php";
   <div class="row justify-content-start">
     <div class="col-2 row justify-content-start">
        <!-- One of two columns -->
-       <!-- <div class="list-group">
+       <div class="list-group">
  
   <button type="button" class="list-group-item list-group-item-action">A second button item</button>
   <button type="button" class="list-group-item list-group-item-action">A third button item</button>
   <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
   
-</div> -->
+</div>
        
       
     </div>
