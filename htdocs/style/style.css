@@ -26,6 +26,19 @@ body {
 
 .sectionlog {
     background-color: #302e2e8a;
-    
+    width: 90vh;
+    height: 85vh;
+    margin-top: 2%;
+    margin-left: 26%;
 
+}
+.bouton {
+    background-color: #1ed760;
+    height: 60px;
+    width: 60%;
+}
+.bouton:hover {
+    background-color: #1ed760;
+    height: 62px;
+    width: 62%;
 }
