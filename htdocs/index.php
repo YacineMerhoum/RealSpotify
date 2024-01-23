@@ -6,6 +6,7 @@ require_once "./config/connexion.php";
 $prepareSQL = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 1");
 $prepareSQL->execute();
 $songlist = $prepareSQL->fetch(PDO::FETCH_ASSOC)
+
 ?>
 
 <!DOCTYPE html>
@@ -131,101 +132,65 @@ if (!empty($_SESSION["pseudo"])) {
                   <div class="p-2 flex">Flex item 4</div>
                   <div class="p-2 flex">Flex item 5</div>
                   <div class="p-2 flex me-4">Flex item 6</div>
-      
+                  
                 </div>
               </div>
 
-                
-                
-                <!-- lecteur footer -->
-              <section class="lecteur d-flex justify-content-center">
+              
+              
+              <!-- lecteur footer -->
+            <section class="lecteur d-flex justify-content-around">
               <!-- /* pochette et titre dans le lecteur a gauche  */ -->
-                  <div class="mt-5 content">Pochette album</div>
+              <div>
+                  <div class="mt-5 content teste"  style="background-image: url('../images/<?=$songlist['cover']?>')"></div>
+
+                  <div class="text-danger" ><?=$songlist['name']?></div><div class="text-white"><?=$songlist['artiste']?></div>
+              </div>
+
+              <div class="d-flex align-items-center" >
+                  <div class="mt-4 play p-3 ">
+                    <i class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
+                  </div>
+
+                  <div class="mt-4 play p-3">
+                    <i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i>
+                  </div>
+
+                <?php
+
+                  if (!empty($_SESSION['pseudo'])) { ?>
+                    
+                    <div class="mt-4 play p-3"> 
+                      <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
+                      <audio id="codeMusiquePlay" src="./music/songs/<?=$songlist['url']?>"></audio>
+                    </div> <?php
+
+                  } else { ?>
+                    
+                    <div class="mt-4 play p-3"> 
+                      <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
+                      <audio id="codeMusiquePause" src="./music/songs/<?=$songlist['url']?>"></audio>
+                  </div> <?php
+
+                  } ?>
 
 
+                  <div class="mt-4 play p-3">
+                    <i class="fa-solid fa-forward fa-2xl" style="color: #ffffff;"></i>
+                  </div>
+              </div>      
+            </section>
 
-
-                  <div class="mt-4 play p-3 "><i class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i></div>
-                  <div class="mt-4 play p-3"><i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i></div>
-                  <div class="mt-4 play p-3"> <i class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i></div>
-                  
-                  <div class="mt-4 play p-3"><i class="fa-solid fa-forward fa-2xl" style="color: #ffffff;"></i></div>
-
-                
-                  </section>
-             </div>
-           </div>
-
-           
-      
-    <!-- lecteur audio footer  -->
-      
-      
-      
-      
-
-      <!-- CODE ESSAY PLAY MUSIQUE-->
-      
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
       <!-- CODE BOUTON AFFICHER COVER NOM ARTISTE ET PLAY MUSIQUE -->
 
-      <div class="btnPlay">
-        <button id="playMusique"><i class="fa-solid fa-circle-play fa-xl" style="color: #15c18d;"></i></button>
-        <audio id="codeMusique" src="./music/songs/<?=$songlist['url']?>"></audio>
-      </div>
 
-      <div class="teste"  style="background-image: url('../images/<?=$songlist['cover']?>')"></div>
+     
 
-     <div class="text-danger" ><?=$songlist['name']?></div><div class="text-white"><?=$songlist['artiste']?></div>
+
+
       
     
-
-
-
-
-
 <script src="./js/index.js"></script>
 <script src="https://kit.fontawesome.com/23471b5a81.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
