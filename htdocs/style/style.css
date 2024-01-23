@@ -137,9 +137,65 @@ a {
 .secteur {
     background-color: #302e2e8a;
     margin-top: 16px;
-    height: 180%;
+    height: 140%;
     width: 99%;
     border-radius: 10px;
-    display: flex;
+    
        
+}
+/* les flexs box musicales  */
+.flex {
+    width: 200px;
+    height: 250px;
+    background-color: rgba(61, 59, 59, 0.772);
+    border-radius: 3%;
+    border-radius: 3%;
+    animation: scaleAnimation 2s infinite alternate;
+    transition: 1s;
+}
+
+.flex:hover {
+    transform: scale(1.1); /* Échelle augmentée au survol */
+}
+
+/* div à l'intérieur de flex  */
+.flexy {
+    width: 181px;
+    height: 160px;
+    background-color: black;
+    border-radius: 3%;
+    border-radius: 3%;
+    animation: scaleAnimation 2s infinite alternate;
+    transition: 1s;
+
+}
+
+/* couleur de spotify */
+.green {
+    color: #1ed760;
+}
+
+
+
+/* lecteur audio footer  */
+.lecteur{
+    width: 99%;
+    height: 20%;
+    background-color: rgba(128, 128, 128, 0.447);
+    border-bottom-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+}
+/* pochette et titre dans le lecteur a gauche  */
+.content {
+    margin-right: 40%;
+}
+
+/* anim sur les boutons play ect du bas */
+
+.play {
+    transition: 0.2s;
+}
+ 
+.play:hover{
+    transform: scale(1.1);
 }
