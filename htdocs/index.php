@@ -34,29 +34,53 @@ require_once "./config/connexion.php";
 </nav>
 </header>
 <body>
+<!-- boutons de droite  -->
+<div class="row g-0 text-center">
 
-<div class="container text-center">
-  <div class="row justify-content-start">
-    <div class="col-2 row justify-content-start">
-       <!-- One of two columns -->
-       <div class="list-group">
- 
-  <button type="button" class="list-group-item list-group-item-action">A second button item</button>
-  <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-  <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-  
-</div>
-       
-      
-    </div>
-    <div class="col-10">
-      <!-- One of two columns -->
-
-
-
-
+  <div class="col-2 col-md-2">
+  <div class="d-grid col-6 ">
+  <button class="btn btn-flex mt-3" type="button"><a href="./index.php">Accueil</a></button>
+  <button class="btn btn-flex" type="button"><a href="">Rechercher</a></button>
+  <button class="btn btn-flex mt-1" type="button"><a href="">Bibiliothèque</a></button>
+  <div class="test">
+    <div class="inside ">
+    <button class="btn btn-flex mt-5 btninside" type="button"><a href="">Créer une playlist</a></button>
+    
+    <p class="text-white fs-5 mt-1">C'est simple nous allons vous aider</p>
     </div>
   </div>
+</div>
+    
+ 
+  </div>
+
+
+
+
+
+<!-- grosse partie droite  Le code doit se passer ici !! -->
+  <div class="col-sm-10 col-md-10">
+    <div class="secteur">
+      <br>
+      <p class="text-white fs-3">Connectez-vous pour accéder à vos Playlists</p>
+      
+
+
+
+
+
+    
+    
+    
+    </div>
+</div>
+</div>
+
+
+
+
+
+
 
 
 
