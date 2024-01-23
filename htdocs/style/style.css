@@ -140,7 +140,7 @@ a {
     height: 140%;
     width: 99%;
     border-radius: 10px;
-    
+
        
 }
 /* les flexs box musicales  */
@@ -198,4 +198,29 @@ a {
  
 .play:hover{
     transform: scale(1.1);
+    
+}
+
+
+
+/* Btn play*/
+
+.btnPlay {
+
+    background-color: black;
+
+}
+
+.btnPlay button {
+    height: 100px;
+    width:  200px;
+    background-color: black;
+    text-decoration: none;
+}
+
+.teste{
+
+    height: 100px;
+    width: 100px;
+    background-size: cover;
 }

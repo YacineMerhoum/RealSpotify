@@ -1,7 +1,11 @@
 <?php
 session_start();
-// include "./config/verif_superglobal.php";
+include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
+
+$prepareSQL = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 1");
+$prepareSQL->execute();
+$songlist = $prepareSQL->fetch(PDO::FETCH_ASSOC)
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +57,9 @@ if (!empty($_SESSION["pseudo"])) {
 ?>
 
 
+  <form action="./process/logout.php" method="post">
+          <button type="submit">deconnexion</button>
+  </form>
 
 
 
@@ -157,6 +164,19 @@ if (!empty($_SESSION["pseudo"])) {
       
       
 
+      <!-- CODE ESSAY PLAY MUSIQUE-->
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -188,10 +208,27 @@ if (!empty($_SESSION["pseudo"])) {
 
 
 
-        
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/23471b5a81.js" crossorigin="anonymous"></script> 
-  <script src="./js/index.js"></script>
+
+      <!-- CODE BOUTON AFFICHER COVER NOM ARTISTE ET PLAY MUSIQUE -->
+
+      <div class="btnPlay">
+        <button id="playMusique"><i class="fa-solid fa-circle-play fa-xl" style="color: #15c18d;"></i></button>
+        <audio id="codeMusique" src="./music/songs/<?=$songlist['url']?>"></audio>
+      </div>
+
+      <div class="teste"  style="background-image: url('../images/<?=$songlist['cover']?>')"></div>
+
+     <div class="text-danger" ><?=$songlist['name']?></div><div class="text-white"><?=$songlist['artiste']?></div>
+      
+    
+
+
+
+
+
+<script src="./js/index.js"></script>
+<script src="https://kit.fontawesome.com/23471b5a81.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
