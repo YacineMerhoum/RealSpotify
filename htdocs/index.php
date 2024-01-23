@@ -1,11 +1,19 @@
 <?php
 session_start();
-include "./config/verif_superglobal.php";
+// include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 
+$prepareCover = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 6");
+$prepareCover->execute();
+$coverlist = $prepareCover->fetchAll(PDO::FETCH_ASSOC);
+
+
+// lecture de sons en-bas 
 $prepareSQL = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 1");
 $prepareSQL->execute();
 $songlist = $prepareSQL->fetch(PDO::FETCH_ASSOC)
+
+
 ?>
 
 <!DOCTYPE html>
@@ -56,10 +64,6 @@ if (!empty($_SESSION["pseudo"])) {
 }
 ?>
 
-
-  <form action="./process/logout.php" method="post">
-          <button type="submit">deconnexion</button>
-  </form>
 
 
 
@@ -116,21 +120,29 @@ if (!empty($_SESSION["pseudo"])) {
         
 
         <!-- test pour les flex box musicales  -->
-        <div class="d-flex justify-content-between">
-                  <div class="p-2 flex ms-4">Flex item 1
+        <div class="d-flex justify-content-center">
+
+                  <?php foreach ($coverlist as $key ) { ?>
+                    
+                  
+                  <div class="p-2 flexa ms-4">
                     <!-- div a l'intérieur  -->
                     <div class="flexy">
-                      
+                      <div class="teste"  style="background-image: url('../images/<?=$key["cover"]?>')"></div>
                     </div>
-
-
-
+                    <p class="text-white fs-5"><?php echo $key["artiste"] ?></p>
+                    <p class="text-secondary fs-6"><?php echo $key["name"] ?> </p>
+                      
                   </div>
-                  <div class="p-2 flex">Flex item 2</div>
-                  <div class="p-2 flex">Flex item 3</div>
-                  <div class="p-2 flex">Flex item 4</div>
-                  <div class="p-2 flex">Flex item 5</div>
-                  <div class="p-2 flex me-4">Flex item 6</div>
+                <?php } ?>
+
+
+
+                  <!-- <div class="p-2 flexa">Flex item 2</div>
+                  <div class="p-2 flexa">Flex item 3</div>
+                  <div class="p-2 flexa">Flex item 4</div>
+                  <div class="p-2 flexa">Flex item 5</div>
+                  <div class="p-2 flexa me-4">Flex item 6</div> -->
       
                 </div>
               </div>
@@ -176,50 +188,8 @@ if (!empty($_SESSION["pseudo"])) {
 
 
 
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <!-- CODE BOUTON AFFICHER COVER NOM ARTISTE ET PLAY MUSIQUE -->
-
-      <div class="btnPlay">
-        <button id="playMusique"><i class="fa-solid fa-circle-play fa-xl" style="color: #15c18d;"></i></button>
-        <audio id="codeMusique" src="./music/songs/<?=$songlist['url']?>"></audio>
-      </div>
-
-      <div class="teste"  style="background-image: url('../images/<?=$songlist['cover']?>')"></div>
-
-     <div class="text-danger" ><?=$songlist['name']?></div><div class="text-white"><?=$songlist['artiste']?></div>
-      
+  
     
 
 
