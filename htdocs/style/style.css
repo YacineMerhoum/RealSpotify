@@ -140,6 +140,6 @@ a {
     height: 180%;
     width: 99%;
     border-radius: 10px;
-    
-    
+    display: flex;
+       
 }
