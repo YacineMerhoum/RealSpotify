@@ -1,36 +1,36 @@
 <?php 
 session_start();
-include "./config/verif_superglobal.php";
 
 
-if (!empty($_POST['email']) && !empty($_POST['password'])) {
+if (!empty($_POST['pseudo']) && !empty($_POST['password'])) {
 
     require_once '../config/connexion.php';
 
-    $preparedRequest = $connexion->prepare("SELECT * FROM user WHERE email = ?");
+    $preparedRequest = $connexion->prepare("SELECT * FROM users WHERE pseudo = ? ");
     $preparedRequest->execute([
-        $_POST['email']
+        $_POST['pseudo']
     ]);
-
     $user = $preparedRequest->fetch(PDO::FETCH_ASSOC);
 
-    if (empty($user)) {
-        header('Location: ../../login.php?error=Email incorrect');
-        die;
-    }
-
-    $isverified = password_verify($_POST['password'], $user['password']);
+    $inputPassword = $_POST['password'];
+    $hash = $user['passWord'];
+    
+    $isverified = password_verify($inputPassword, $hash);
     if ($isverified) {
         
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['pseudo'] = $user["pseudo"];
-        $_SESSION['email'] = $user["email"];
-
-        setcookie('pseudo', $_SESSION['pseudo'], time()+3600, '/');
-        header('Location: ../../index.php?success=tu es connecté');
-        die;
+        
+         $_SESSION['id'] = $user['id'];
+         $_SESSION['pseudo'] = $user["pseudo"];
+         
+        
+         header('Location: ../index.php');
+         die;
     }else{
-        header('Location: ../../login.php?error=Password incorrect');
-        die;
+         header('Location: ../pagelogin.php');
+         die;
+      
+
     }
 }
+
+
