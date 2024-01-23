@@ -30,3 +30,8 @@ document.addEventListener("click", function(){
     document.querySelector('#codeMusiquePause').pause();  
        
     })
+
+
+    // événement hover sur la souris bouton click qui s'affiche 
+
+    let greenButton = document.querySelector

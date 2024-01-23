@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "./config/verif_superglobal.php";
+// include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 ?>
 

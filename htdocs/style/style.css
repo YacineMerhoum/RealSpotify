@@ -144,7 +144,7 @@ a {
        
 }
 /* les flexs box musicales  */
-.flex {
+.flexa {
     width: 200px;
     height: 250px;
     background-color: rgba(61, 59, 59, 0.772);
@@ -154,7 +154,7 @@ a {
     transition: 1s;
 }
 
-.flex:hover {
+.flexa:hover {
     transform: scale(1.1); /* Échelle augmentée au survol */
 }
 
@@ -220,7 +220,7 @@ a {
 
 .teste{
 
-    height: 100px;
-    width: 100px;
+    height: 100%;
+    width: 100%;
     background-size: cover;
 }
