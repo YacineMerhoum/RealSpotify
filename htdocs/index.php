@@ -1,5 +1,6 @@
 <?php
-// include "./config/verif_superglobal.php";
+session_start();
+include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 ?>
 
@@ -25,6 +26,9 @@ require_once "./config/connexion.php";
         <button class="btn btn-outline fs-5 subscribe " type="submit">S'inscrire</button>
       </a>
 
+  <form action="./process/logout.php" method="post">
+          <button type="submit">deconnexion</button>
+  </form>
 
       <a href="./pagelogin.php">
         <!-- connexion session  -->
