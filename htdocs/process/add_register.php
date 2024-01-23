@@ -2,7 +2,7 @@
 session_start();
 
 if (!empty($_POST['pseudo'])
-    && !empty($_POST['passWord']) ) {
+    && !empty($_POST['password']) ) {
         
         require_once '../config/connexion.php';
 
@@ -19,8 +19,8 @@ if (!empty($_POST['pseudo'])
         $_SESSION['id'] = $connexion->lastInsertId();
         $_SESSION['pseudo'] = $_POST["pseudo"];
 
-        header('Location: ../index.php?success=Votre compte a bien été créé !');
+        header('Location: ../index.php');
 }else{
-    header('Location: ../process/register.php?error=Erreur dans la création du compte');
+    header('Location: ../process/register.php');
 
 }
