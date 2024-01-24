@@ -29,9 +29,16 @@ document.addEventListener("click", function(){
     
     document.querySelector('#codeMusiquePause').pause();  
        
+    });
+
+
+
+    // lecture musique sur le flexa avec button green 
+
+    let lecture = document.querySelector("greenbutton")
+    lecture.addEventListener("click" , function() {
+      console.log(lecture);
+      
     })
 
-
-    // événement hover sur la souris bouton click qui s'affiche 
-
-    let greenButton = document.querySelector
+  
