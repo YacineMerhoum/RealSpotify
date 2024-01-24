@@ -202,7 +202,6 @@ a {
 }
 
 
-
 /* Btn play*/
 
 .btnPlay {
@@ -225,9 +224,29 @@ a {
     background-size: cover;
 }
 
+
+
+/* logo play vert au survol de flexy  */
+.hiddenLogo {
+    opacity: 0;
+    position:relative;
+    z-index: 100;
+    top: 75px;
+    
+    /* transform: translate(-50%, -50%); */
+    transition: opacity 1.3s ease;
+  }
+
+  .greenbutton:hover .hiddenLogo {
+    opacity: 1;
+    transition: 1s;
+    transform: scale(2.0);
+  }
+
 /* CACHER LE BOUTON PLAY OU PAUSE  */
 
 .hiddenPLAY {
 
     display: none;
 }
+
