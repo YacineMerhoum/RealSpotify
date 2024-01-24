@@ -224,3 +224,10 @@ a {
     width: 100%;
     background-size: cover;
 }
+
+/* CACHER LE BOUTON PLAY OU PAUSE  */
+
+.hiddenPLAY {
+
+    display: none;
+}
