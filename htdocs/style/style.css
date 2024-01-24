@@ -225,6 +225,7 @@ a {
 }
 
 
+
 /* logo play vert au survol de flexy  */
 .hiddenLogo {
     opacity: 0;
@@ -241,3 +242,11 @@ a {
     transition: 1s;
     transform: scale(2.0);
   }
+
+/* CACHER LE BOUTON PLAY OU PAUSE  */
+
+.hiddenPLAY {
+
+    display: none;
+}
+

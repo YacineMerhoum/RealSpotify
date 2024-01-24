@@ -9,9 +9,13 @@ $coverlist = $prepareCover->fetchAll(PDO::FETCH_ASSOC);
 
 
 // lecture de sons en-bas 
-$prepareSQL = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 1");
-$prepareSQL->execute();
-$songlist = $prepareSQL->fetch(PDO::FETCH_ASSOC)
+$prepareSQL1 = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 1");
+$prepareSQL1->execute();
+$songlistrand = $prepareSQL1->fetch(PDO::FETCH_ASSOC);
+
+$prepareSQL2 = $connexion->prepare("SELECT * FROM songs ORDER BY id ASC LIMIT 1");
+$prepareSQL2->execute();
+$songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -171,56 +175,42 @@ $songlist = $prepareSQL->fetch(PDO::FETCH_ASSOC)
 
 
 
-        <!-- CODE BOUTON AFFICHER COVER NOM ARTISTE ET PLAY MUSIQUE -->
 
+                    <!-- BOUTON RANDOM !-->
+              <div class="d-flex align-items-center" >
 
-        <div class="content teste">
+                  <div class="mt-4 play p-3 ">
+                    <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
+                    <audio id="codeMusiqueRand" src="./music/songs/<?=$songlistrand['url']?>"></audio>
+                    <?=$songlistrand['url']?>
+                  </div>
+                  #15c18d
+                    <!-- BOUTON AVANT !-->
+                  <div class="mt-4 play p-3">
+                    <i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i>
+                  </div>
+               
+                    <!-- BOUTON PLAY !-->
 
+                    <div class="mt-4 play p-3 play"> 
+                      <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
+                      <audio id="codeMusiquePlay" src="./music/songs/<?=$songlist['url']?>"></audio>
+                    </div> 
 
-          <div class="mt-5 coverlecteur" style="background-image: url('../images/<?= $songlist['cover'] ?>')"></div>
+                    <!-- BOUTON PAUSE !-->
 
+                    <div class="mt-4 play p-3 hiddenPLAY"> 
+                      <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
+                      <audio id="codeMusiquePause" src="./music/songs/<?=$songlist['url']?>"></audio>
+                  </div> 
+                    <!-- BOUTON APRES !-->
+                  <div class="mt-4 play p-3">
+                    <i class="fa-solid fa-forward fa-2xl" style="color: #ffffff;"></i>
+                  </div>
+              </div>      
+            </section>
 
-          <div class="text-danger"><?= $songlist['name'] ?></div>
-          <div class="text-white"><?= $songlist['artiste'] ?></div>
-        </div>
-
-        <div class="d-flex align-items-center">
-          <div class="mt-4 play p-3 ">
-            <i class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
-          </div>
-
-          <div class="mt-4 play p-3">
-            <i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i>
-          </div>
-
-          <?php
-
-          if (!empty($_SESSION['pseudo'])) { ?>
-
-            <div class="mt-4 play p-3">
-              <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
-              <audio id="codeMusiquePlay" src="./music/songs/<?= $songlist['url'] ?>"></audio>
-            </div> <?php
-
-                  } else { ?>
-
-            <div class="mt-4 play p-3">
-              <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
-              <audio id="codeMusiquePause" src="./music/songs/<?= $songlist['url'] ?>"></audio>
-            </div> <?php
-
-                  } ?>
-
-
-          <div class="mt-4 play p-3">
-            <i class="fa-solid fa-forward fa-2xl" style="color: #ffffff;"></i>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- CODE BOUTON AFFICHER COVER NOM ARTISTE ET PLAY MUSIQUE -->
-
+     
 
 
 

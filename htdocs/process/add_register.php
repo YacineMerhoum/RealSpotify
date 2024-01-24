@@ -18,6 +18,7 @@ if (!empty($_POST['pseudo'])
 
         $_SESSION['id'] = $connexion->lastInsertId();
         $_SESSION['pseudo'] = $_POST["pseudo"];
+        
 
         header('Location: ../index.php');
 }else{
