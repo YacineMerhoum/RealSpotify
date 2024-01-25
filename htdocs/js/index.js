@@ -44,9 +44,36 @@
     let randomPlay = document.querySelector('#MusiqueRandom')
 
         randomPlay.addEventListener("click", function(){
-
-            console.log(randomPlay.style)
-            document.querySelector('#codeMusiqueRand').play();
-            
+            document.querySelector('#codeMusiqueRand').play();   
         })
 
+
+    // METHODE AJAX POUR MUSIQUE SUIVANTE
+
+    function process() {
+
+        fetch("./process/play_musique.php")
+        .then((res)=>{
+            return res.json();
+        })
+        .then((datas)=>{
+            
+            let p = document.querySelector('#nextMusique');
+            p.addEventListener("click", function(){
+                let audio = document.querySelector('#nextMusiqueAUDIO')
+                
+                console.log(datas);
+                console.log(p);
+                
+                for (let i = 0; i < datas.length; i++) {
+                    audio.src = `./music/songs/${datas[i]['url']}`
+                    console.log("ppl")
+                }
+                console.log(audio)
+                console.log(datas[2]['url'])
+            })
+        })
+    }
+    process();
+
+    

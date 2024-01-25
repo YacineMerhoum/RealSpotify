@@ -237,7 +237,7 @@ a {
     transition: opacity 1.3s ease;
   }
 
-  .greenbutton:hover .hiddenLogo {
+  .teste:hover .hiddenLogo {
     opacity: 1;
     transition: 1s;
     transform: scale(2.0);
@@ -250,3 +250,14 @@ a {
     display: none;
 }
 
+
+
+.scroll {
+
+    align-items: center;
+    height: 350px;
+    
+    overflow-x: scroll;
+    margin: 5%;
+   
+}

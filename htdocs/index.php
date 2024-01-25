@@ -3,7 +3,7 @@ session_start();
 // include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 
-$prepareCover = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 6");
+$prepareCover = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 8");
 $prepareCover->execute();
 $coverlist = $prepareCover->fetchAll(PDO::FETCH_ASSOC);
 
@@ -123,7 +123,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 
         <!-- test pour les flex box musicales  -->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center scroll">
 
           <?php foreach ($coverlist as $key) { ?>
             
@@ -134,7 +134,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
               <div class="flexy">
                 <div class="teste" style="background-image: url('../images/<?= $key["cover"] ?>')">
                
-                <div class="greenbutton">
+                <div class="startmusic">
 
                       <i class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
                       </div> 
@@ -184,7 +184,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
                     <audio id="codeMusiqueRand" src="./music/songs/<?=$songlistrand['url']?>"></audio>
                     <?=$songlistrand['url']?>
                   </div>
-                  #15c18d
+                  
                     <!-- BOUTON AVANT !-->
                   <div class="mt-4 play p-3">
                     <i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i>
@@ -205,18 +205,11 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
                   </div> 
                     <!-- BOUTON APRES !-->
                   <div class="mt-4 play p-3">
-                    <i class="fa-solid fa-forward fa-2xl" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-forward fa-2xl" id="nextMusique" style="color: #ffffff;"></i>
+                    <audio id="nextMusiqueAUDIO" src=""></audio>
                   </div>
               </div>      
             </section>
-
-     
-
-
-
-
-
-
 
 
       <script src="./js/index.js"></script>
