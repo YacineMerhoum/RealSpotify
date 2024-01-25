@@ -253,3 +253,14 @@ a {
     
 }
 
+
+
+.scroll {
+
+    align-items: center;
+    height: 350px;
+    
+    overflow-x: scroll;
+    margin: 5%;
+   
+}
