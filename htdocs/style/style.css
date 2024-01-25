@@ -137,7 +137,7 @@ a {
 .secteur {
     background-color: #302e2e8a;
     margin-top: 16px;
-    height: 140%;
+    height: 120%;
     width: 99%;
     border-radius: 10px;
 
@@ -147,15 +147,17 @@ a {
 .flexa {
     width: 200px;
     height: 250px;
-    background-color: rgba(61, 59, 59, 0.772);
+    background-color: rgba(76, 74, 74, 0.244);
     border-radius: 3%;
     border-radius: 3%;
     animation: scaleAnimation 2s infinite alternate;
     transition: 1s;
+    margin-top: 5%;
 }
 
 .flexa:hover {
-    transform: scale(1.1); /* Échelle augmentée au survol */
+    transform: scale(1.1);
+    background-color: rgba(76, 74, 74, 0.867);
 }
 
 /* div à l'intérieur de flex  */
@@ -178,13 +180,19 @@ a {
 
 
 /* lecteur audio footer  */
-.lecteur{
+#lecteur{
+    display: none !important;
     width: 99%;
     height: 20%;
     background-color: rgba(128, 128, 128, 0.447);
     border-bottom-right-radius: 5%;
-    border-bottom-left-radius: 5%;
+    border-bottom-left-radius: 5%; 
 }
+#lecteur.visible {
+    display: block !important;
+    
+}
+
 /* pochette et titre dans le lecteur a gauche  */
 .content {
     margin-right: 40%;
@@ -252,15 +260,16 @@ a {
     display: none;
     
 }
-
-
-
-.scroll {
+/* .scroll {
 
     align-items: center;
     height: 350px;
+    overflow: auto;
+    margin-right: 10%;
+    margin-left: 10%;
     
-    overflow-x: scroll;
-    margin: 5%;
-   
+    
 }
+.scroll-content {
+    width: 100%;
+} */

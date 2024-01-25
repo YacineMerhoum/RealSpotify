@@ -88,9 +88,9 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
           <i class="fa-solid fa-book-open" style="color: #ffffff;"></i> Bibiliothèque</a></button>
         <div class="test">
           <div class="inside ">
-            <button class="btn btn-flex mt-5 btninside" type="button"><a href="">Créer une playlist</a></button>
+            
 
-            <p class="text-white fs-5 mt-1">C'est simple nous allons vous aider</p>
+            <p class="text-white fs-5 mt-1">C'est parti !</p>
           </div>
         </div>
       </div>
@@ -125,11 +125,26 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         <br>
 
 
-        <!-- test pour les flex box musicales  -->
-        <div class="d-flex justify-content-center">
+        <!-- test pour les playslist musicales  fais le jeudi-->
+        <div class="d-flex column">
+      
+
+
+
+
+       
+        
 
           
 
+
+
+
+
+
+          
+
+    
 
 
           
