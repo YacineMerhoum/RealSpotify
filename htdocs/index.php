@@ -81,7 +81,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
           <i class="fa-solid fa-book-open" style="color: #ffffff;"></i> Bibiliothèque</a></button>
         <div class="test">
           <div class="inside ">
-            <button class="btn btn-flex mt-5 btninside" type="button"><a href="">Créer une playlist</a></button>
+            <button class="btn btn-flex mt-5 btninside" type="button"><a href="./playlist.php">Créer une playlist</a></button>
 
             <p class="text-white fs-5 mt-1">C'est simple nous allons vous aider</p>
           </div>
@@ -119,11 +119,13 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 
         <!-- test pour les flex box musicales  -->
-        <div class="d-flex justify-content-center scroll">
+        <div class="d-flex justify-content-center scroll ">
 
           <?php foreach ($coverlist as $key) { ?>
             
+
             <div class="p-2 flexa ms-4" id="flexa">
+
               <!-- div a l'intérieur  -->
               <div class="flexy">
                 <div class="teste" style="background-image: url('../images/<?= $key["cover"] ?>')">
@@ -143,6 +145,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
               </div>
 
             </div>
+
           <?php } ?>   
         </div>
 
@@ -155,7 +158,9 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
       <!-- /* pochette et titre dans le lecteur a gauche  */ -->
 
 
-      <section class="lecteur d-flex justify-content-around" id="lecteur">
+
+      <section class="d-flex justify-content-around " id="lecteur" >
+
 
                     <!-- BOUTON RANDOM !-->
               <div class="d-flex align-items-center" >
@@ -185,10 +190,9 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
                     <i class="fa-solid fa-forward fa-2xl" id="nextMusique" style="color: #ffffff;"></i>
                   </div>
 
-                  <!-- <audio id="code#Musique" src="./music/songs/<?=$coverlist['url']?>"></audio> -->
-              
-                </div>      
-        </section>
+              </div>      
+      </section>
+
 
 
       <script src="./js/index.js"></script>

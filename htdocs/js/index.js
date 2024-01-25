@@ -13,10 +13,12 @@
 
 
     //TEST START MUSIC BUTTON GREEN CODE YACINE
+     // TEST POUR AFFICHER LA DIV LECTEUR AU CLICK 
 
 
     document.addEventListener('DOMContentLoaded', function () {
       let startButtons = document.querySelectorAll("#startmusic");
+      let lecteur = document.getElementById("lecteur");
     
       console.log(startButtons)  
 
@@ -25,16 +27,25 @@
         button.addEventListener("click", function () {
           let audio = this.querySelector("audio");
 
+
           console.log(audio)
           
-          audio.play();
+  
 
           console.log(affichageLecteur)
+        
+          lecteur.classList.add("visible");
+          audio.play();
+        
+
           
-          
+            
+        });
         });
       });
+
     });
+
 
     // CODE PLAY MUSIQUE ONLCICK
 
