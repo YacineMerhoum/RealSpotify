@@ -11,6 +11,29 @@
     });
 
 
+
+    //TEST START MUSIC BUTTON GREEN CODE YACINE
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let startButtons = document.querySelectorAll("#startmusic");
+    
+      startButtons.forEach(function (button) {
+       
+        button.addEventListener("click", function () {
+          let audio = this.querySelector("audio");
+          
+          audio.play();
+          let affichageLecteur = document.querySelector("#lecteur");
+          affichageLecteur.innerHTML = ``
+          
+          
+        });
+      });
+    });
+    
+  
+
     // CODE PLAY MUSIQUE ONLCICK
 
     
