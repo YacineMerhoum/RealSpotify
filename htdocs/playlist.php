@@ -84,7 +84,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
       <div class="d-grid col-6 ">
         <button class="btn btn-flex mt-3 text-start" type="button"><a href="./index.php"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Accueil</a></button>
         <button class="btn btn-flex text-start" type="button"><a href=""><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i> Rechercher</a></button>
-        <button class="btn btn-flex mt-1 text-start" type="button"><a href="./playlist.php">
+        <button class="btn btn-flex mt-1 text-start" type="button"><a href="">
           <i class="fa-solid fa-book-open" style="color: #ffffff;"></i> Bibiliothèque</a></button>
         <div class="test">
           <div class="inside ">
@@ -109,11 +109,11 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
         <br>
         <?php if (!empty($_SESSION["pseudo"])) {
-          echo '<p class="text-white fs-3">' . "Bienvenue " .  $_SESSION["pseudo"] . " dans votre univers musical " .
+          echo '<p class="text-white fs-3">' .  $_SESSION["pseudo"] . " , voici vos coups de coeurs " .
             '</p>';
         } else {
           // Afficher autre chose ou ne rien afficher si la session n'est pas ouverte
-          echo '<p class="text-white fs-3">Connectez-vous pour plus de contenu</p>';
+          echo '<p class="text-white fs-3">Connectez-vous pour accéder à vos Playlists</p>';
         }; ?>
         </p>
         <br>
@@ -128,42 +128,11 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         <!-- test pour les flex box musicales  -->
         <div class="d-flex justify-content-center">
 
-          <?php foreach ($coverlist as $key) { ?>
-            
-
-
-            <div class="p-2 flexa ms-4" id="flexa">
-              <!-- div a l'intérieur  -->
-              <div class="flexy">
-                <div class="teste" style="background-image: url('../images/<?= $key["cover"] ?>')">
-               
-                <div id="startmusic">
-
-                      <i class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
-                      <audio id="coverMusic" src="./music/songs/<?=$key["url"]?>"></audio>
-                      </div> 
-                      
-
-                  
-
-
-                </div>
-
-              </div>
-              <p class="text-white fs-5"><?php echo $key["artiste"] ?></p>
-              <p class="text-secondary fs-6"><?php echo $key["name"] ?> </p>
-
-            </div>
-          <?php } ?>
+          
 
 
 
-
-          <!-- <div class="p-2 flexa">Flex item 2</div>
-                  <div class="p-2 flexa">Flex item 3</div>
-                  <div class="p-2 flexa">Flex item 4</div>
-                  <div class="p-2 flexa">Flex item 5</div>
-                  <div class="p-2 flexa me-4">Flex item 6</div> -->
+          
 
         </div>
       </div>
