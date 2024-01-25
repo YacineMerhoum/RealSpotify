@@ -140,8 +140,6 @@ a {
     height: 120%;
     width: 99%;
     border-radius: 10px;
-
-       
 }
 /* les flexs box musicales  */
 .flexa {
@@ -260,16 +258,4 @@ a {
     display: none;
     
 }
-/* .scroll {
 
-    align-items: center;
-    height: 350px;
-    overflow: auto;
-    margin-right: 10%;
-    margin-left: 10%;
-    
-    
-}
-.scroll-content {
-    width: 100%;
-} */

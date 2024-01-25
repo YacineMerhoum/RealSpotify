@@ -9,16 +9,9 @@ $coverlist = $prepareCover->fetchAll(PDO::FETCH_ASSOC);
 
 
 // lecture de sons en-bas 
-$prepareSQL1 = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 1");
-$prepareSQL1->execute();
-$songlistrand = $prepareSQL1->fetch(PDO::FETCH_ASSOC);
-
 $prepareSQL2 = $connexion->prepare("SELECT * FROM songs ORDER BY id ASC LIMIT 6");
 $prepareSQL2->execute();
 $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -131,52 +124,39 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
           <?php foreach ($coverlist as $key) { ?>
             
 
+            <div class="p-2 flexa ms-4" id="flexa">
 
-            <div class="p-2 flexa ms-4 " id="flexa">
               <!-- div a l'intérieur  -->
               <div class="flexy">
                 <div class="teste" style="background-image: url('../images/<?= $key["cover"] ?>')">
-               
 
-                <div class="startmusic">
+                  <div class="startmusic">
 
-                <div id="startmusic">
-
-
+                    <div id="startmusic">
                       <i class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
                       <audio id="coverMusic" src="./music/songs/<?=$key["url"]?>"></audio>
-                      </div> 
-                      
-
-                  
-
+                    </div> 
+                    
+                  </div>
 
                 </div>
-
+                      <p class="text-white fs-5"><?php echo $key["artiste"] ?></p>
+                      <p class="text-secondary fs-6"><?php echo $key["name"] ?> </p>
               </div>
-              <p class="text-white fs-5"><?php echo $key["artiste"] ?></p>
-              <p class="text-secondary fs-6"><?php echo $key["name"] ?> </p>
 
             </div>
-          </div>
-          <?php } ?>
 
-
-
-
-          <!-- <div class="p-2 flexa">Flex item 2</div>
-                  <div class="p-2 flexa">Flex item 3</div>
-                  <div class="p-2 flexa">Flex item 4</div>
-                  <div class="p-2 flexa">Flex item 5</div>
-                  <div class="p-2 flexa me-4">Flex item 6</div> -->
-
+          <?php } ?>   
         </div>
+
+
       </div>
 
 
 
       <!-- lecteur footer -->
       <!-- /* pochette et titre dans le lecteur a gauche  */ -->
+
 
 
       <section class="d-flex justify-content-around " id="lecteur" >
@@ -187,35 +167,32 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
                   <div class="mt-4 play p-3 ">
                     <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
-                    <audio id="codeMusiqueRand" src="./music/songs/<?=$songlistrand['url']?>"></audio>
-                    <?=$songlistrand['url']?>
                   </div>
                   
                     <!-- BOUTON AVANT !-->
                   <div class="mt-4 play p-3">
-                    <i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-backward fa-2xl" id="previusMusique" style="color: #ffffff;"></i>
                   </div>
                
                     <!-- BOUTON PLAY !-->
 
                     <div class="mt-4 play p-3 play"> 
                       <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
-                      <audio id="codeMusiquePlay" src="./music/songs/<?=$songlist['url']?>"></audio>
                     </div> 
 
                     <!-- BOUTON PAUSE !-->
 
                     <div class="mt-4 play p-3 hiddenPLAY"> 
                       <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
-                      <audio id="codeMusiquePause" src="./music/songs/<?=$songlist['url']?>"></audio>
                   </div> 
                     <!-- BOUTON APRES !-->
                   <div class="mt-4 play p-3">
                     <i class="fa-solid fa-forward fa-2xl" id="nextMusique" style="color: #ffffff;"></i>
-                    <audio id="nextMusiqueAUDIO" src=""></audio>
                   </div>
+
               </div>      
       </section>
+
 
 
       <script src="./js/index.js"></script>
