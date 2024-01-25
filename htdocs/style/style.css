@@ -137,11 +137,9 @@ a {
 .secteur {
     background-color: #302e2e8a;
     margin-top: 16px;
-    height: 140%;
+    height: 120%;
     width: 99%;
     border-radius: 10px;
-
-       
 }
 /* les flexs box musicales  */
 .flexa {
@@ -152,6 +150,7 @@ a {
     border-radius: 3%;
     animation: scaleAnimation 2s infinite alternate;
     transition: 1s;
+    margin-top: 5%;
 }
 
 .flexa:hover {
@@ -255,12 +254,3 @@ a {
 
 
 
-.scroll {
-
-    align-items: center;
-    height: 350px;
-    
-    overflow-x: scroll;
-    margin: 5%;
-   
-}

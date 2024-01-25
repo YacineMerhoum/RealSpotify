@@ -18,21 +18,23 @@
     document.addEventListener('DOMContentLoaded', function () {
       let startButtons = document.querySelectorAll("#startmusic");
     
+      console.log(startButtons)  
+
       startButtons.forEach(function (button) {
        
         button.addEventListener("click", function () {
           let audio = this.querySelector("audio");
+
+          console.log(audio)
           
           audio.play();
-          let affichageLecteur = document.querySelector("#lecteur");
-          affichageLecteur.innerHTML = ``
+
+          console.log(affichageLecteur)
           
           
         });
       });
     });
-    
-  
 
     // CODE PLAY MUSIQUE ONLCICK
 
@@ -40,7 +42,7 @@
     let Play = document.querySelector('#playMusiquePlay')
 
     Play.addEventListener("click", function(){
-        document.querySelector('#codeMusiquePlay').play();
+        document.querySelector('#coverMusic').play();
 
         let classe = Play.parentNode.classList;
         classe.toggle("hiddenPLAY");
@@ -53,7 +55,7 @@
     let Pause = document.querySelector('#playMusiquePause')
 
         Pause.addEventListener("click", function(){        
-            document.querySelector('#codeMusiquePlay').pause();  
+            document.querySelector('#coverMusic').pause();  
 
             let classePause = Pause.parentNode.classList;
             classePause.toggle("hiddenPLAY");
@@ -67,7 +69,12 @@
     let randomPlay = document.querySelector('#MusiqueRandom')
 
         randomPlay.addEventListener("click", function(){
-            document.querySelector('#codeMusiqueRand').play();   
+
+            Math.random(document.querySelector('#coverMusic').play())
+            randomPlay.classList.add("activeRandom")
+
+            //utiliser toogle 
+               
         })
 
 
@@ -80,23 +87,52 @@
             return res.json();
         })
         .then((datas)=>{
-            
-            let p = document.querySelector('#nextMusique');
-            p.addEventListener("click", function(){
-                let audio = document.querySelector('#nextMusiqueAUDIO')
+                      
+            A = 0;
+            let BTNnext = document.querySelector('#nextMusique');
+            BTNnext.addEventListener("click", function(){
+                let audio = document.querySelector('#coverMusic')
+                
+                A++
+
+                //verifier si active random avec contains existe dans la class 
+
+                function NEXT(n) {
+                    datas[n]['url']
+                    console.log(datas[n]['url'])
+                }
+    
+                NEXT(A)
+
+
+                    audio.src = `./music/songs/${datas[A]['url']}`;
+                    audio.play()  
+                    
+
+                    
+                let BTNprevius = document.querySelector('#previusMusique');
+                BTNprevius.addEventListener("click", function(){
+                let audio = document.querySelector('#coverMusic')
+                        
+                A--
+                
+                function NEXT(n) {
+                    datas[n]['url']
+                    console.log(datas[n]['url'])
+                }
+                
+                NEXT(A)
                 
                 console.log(datas);
-                console.log(p);
+                console.log(BTNprevius);
                 
-                for (let i = 0; i < datas.length; i++) {
-                    audio.src = `./music/songs/${datas[i]['url']}`
-                    console.log("ppl")
-                }
+                    audio.src = `./music/songs/${datas[A]['url']}`;
+                    audio.play()
+                        
                 console.log(audio)
-                console.log(datas[2]['url'])
-            })
+                        
+                })    
+            })          
         })
     }
     process();
-
-    
