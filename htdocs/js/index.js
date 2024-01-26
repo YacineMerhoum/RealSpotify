@@ -57,8 +57,6 @@
 
       ///VOLUME LECTEUR
 
-
-
     let volumeControle = document.querySelector("#volume");
     let musique = document.querySelector("#coverMusic");
     
@@ -67,23 +65,7 @@
         
         
     });
-    
-    //CHANGEMENT COULEUR BOUTTON ALEATOIRE  
-
-    // let logoAleatoire = document.querySelector("#aleatoire");
-    // logoAleatoire.addEventListener("click" , function(){
-    //     logoAleatoire.innerHTML = 
-
-    // });
-  
-      
      
-
-          
-            
-
-
-
 
     // CODE PLAY MUSIQUE ONLCICK
 
@@ -125,9 +107,11 @@
         })
 
 
-            // BONTON LIKE 
+            // INCREMENTATION DE A POUR SE DEPLACER DANS LES MUSIQUES
 
-        
+                let A = 0;
+
+            // //FIN 
 
 
     // METHODE AJAX POUR MUSIQUE SUIVANTE
@@ -140,59 +124,83 @@
         })
         .then((datas)=>{
                       
-                // NEXT MUSIQUE AJAX
+            // A = 0;
 
-            A = 0;
             let BTNnext = document.querySelector('#nextMusique');
             BTNnext.addEventListener("click", function(){
+
                 let audio = document.querySelector('#coverMusic')
                 
-                A++
+                A++  
 
-                //verifier si active random avec contains existe dans la class 
-
-                function NEXT(n) {
-                    datas[n]['url']
-                    console.log(datas[n]['url'])
-                }
-    
-                NEXT(A)
-
-
-                    audio.src = `./music/songs/${datas[A]['url']}`;
-                    audio.play()  
-                    
-
-
-
-                // PREVIUS MUSIQUE AJAX
-
-                A = NEXT(a)   
-                console.log(NEXT(A))
-
-                let BTNprevius = document.querySelector('#previusMusique');
-                BTNprevius.addEventListener("click", function(){
-                let audio = document.querySelector('#coverMusic')
-
-                A--
+                 function NEXT(n) {
+                     datas[n]['url']
+                 } 
+                 NEXT(A);
                 
-                function NEXT(n) {
-                    datas[n]['url']
-                    console.log(datas[n]['url'])
-                }
-                
-                NEXT(A)
-                
-                console.log(datas);
-                console.log(BTNprevius);
-                
-                    audio.src = `./music/songs/${datas[A]['url']}`;
-                    audio.play()
-                        
-                console.log(audio)
-                        
-                })    
+                audio.src = `./music/songs/${datas[A]['url']}`;
+                audio.play()     
             })          
         })
     }
     process();
+
+    // PREVIUS MUSIQUE AJAX
+
+
+    function process2() {
+
+        fetch("./process/play_musique.php")
+        .then((res)=>{
+            return res.json();
+        })
+        .then((datas)=>{
+             
+                let BTNprevius = document.querySelector('#previusMusique');
+                BTNprevius.addEventListener("click", function(){
+
+                let audio = document.querySelector('#coverMusic')
+            
+                 A--
+                
+                 function NEXT(n) {
+                     datas[n]['url']
+                 }
+                
+                 NEXT(A)
+               
+                    audio.src = `./music/songs/${datas[A]['url']}`;
+                    audio.play()
+            })          
+        })
+    }
+    process2();
+
+    
+    
+    function process3() {   
+
+
+        let BTNlike = document.querySelector("#LIKE");
+
+        BTNlike.addEventListener("click", function(e){
+
+            console.log(e.target)
+            
+            let formData = new FormData()
+
+            formData.append('id_song', BTNlike.dataset.id_song)
+            
+            console.log(formData)
+
+            fetch("/process/add_Like.php", {
+                method : "post",
+                body : formData
+            })
+            .then((res)=>{
+                    return res.json();
+                })
+        })
+    }
+
+process3();
