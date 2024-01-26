@@ -1,42 +1,46 @@
 <?php
 session_start();
-// include "./config/verif_superglobal.php";
 require_once "../config/connexion.php";
 
+// var_dump($_POST, $_SESSION);
+// die;
 
-$prepareSQL2 = $connexion->prepare("SELECT * FROM songs");
-$prepareSQL2->execute();
+
+$prepareSQL2 = $connexion->prepare(
+    "SELECT * FROM liked 
+    INNER JOIN songs 
+        ON liked.id_song = songs.id 
+    INNER JOIN users 
+        ON liked.id_user = users.id
+    WHERE 
+        songs.id = ?
+    AND
+        users.id = ?
+    "
+);
+$prepareSQL2->execute([
+        $_POST['id_song'],
+        $_SESSION['id']
+]);
 $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
+if (!$songlist) {
+
+    $songlist->prepare(
+    "INSERT INTO liked (id_user, id_song) VALUES (?, ?)");
+
+    $songlist->execute([
+        $_POST['id_song'],
+        $_SESSION['id']
+    ]);
+
+}else{
+    echo "salut";
+};
+
+
+var_dump(json_encode($songlist));
+die;
 
 
 
-$SQLrequest = $connexion->prepare(
-    "SELECT * FROM users JOIN liked ON users.id = liked.id_user");
-$SQLrequest->execute(
-    $_SESSION['id']
-);
-
-// if (dans la base de donne like = 0) {
-
-//     if (si like = 1 ) {
-
-//         header location sorry deja like 
-        
-//         insert id user
-//         insert 
-//         retourne 1
-//     }
-// } else {
-//     retourne 0
-// }
-
-
-// recuperer id song get
-// verifier si ca existe dja dans liked
-// insert id song et id user dans la table liked 
-
-
-
-
-echo $_GET['like'];

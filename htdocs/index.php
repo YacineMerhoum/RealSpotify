@@ -1,6 +1,6 @@
 <?php
 session_start();
-//include "./config/verif_superglobal.php";
+include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 
 $prepareCover = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 6");
@@ -12,6 +12,7 @@ $coverlist = $prepareCover->fetchAll(PDO::FETCH_ASSOC);
 $prepareSQL2 = $connexion->prepare("SELECT * FROM songs ORDER BY id ASC LIMIT 6");
 $prepareSQL2->execute();
 $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +34,6 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
       </a>
 
 
-
       <?php if (!empty($_SESSION["pseudo"])) {
       } else {
         echo '<a href="./register.php">
@@ -48,7 +48,17 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         echo '<form action="./process/logout.php" method="post">
           <button type="submit"  class="btn btn-outline fs-5 subscribe ">Déconnexion</button>
   </form>';
-      }
+
+      } 
+      
+      if (!empty($_SESSION['pseudo'])) {
+       
+      if($_SESSION['pseudo'] == "xxx" || $_SESSION['pseudo'] == "yacine"){?>
+            <a href="./admin.php">ADMIN</a>
+     <?php }
+      
+      } 
+
 
       // condition if pour la connexion également 
 
@@ -223,12 +233,19 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
             </div>
 
+          <div class="mt-4 play p-3">       
+              <i class="fa-regular fa-heart fa-2xl" id="LIKE"
+              data-url_song="<?=$songlist['url']?>" 
+              data-id_song="<?=$songlist['id']?>"
+              data-user_name="<?=$_SESSION['pseudo']?>"
+              data-user_id="<?=$_SESSION['id']?>"
+              style="color: #ffffff;"></i>     
+          </div>
+
         </div>
       </section>
      
      
-
-
 
     </div>
     </section>
