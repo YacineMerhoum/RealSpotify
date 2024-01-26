@@ -22,6 +22,6 @@ if (!empty($_POST['pseudo'])
 
         header('Location: ../index.php');
 }else{
-    header('Location: ../process/register.php');
+    header('Location: ../register.php?error=Merci de remplir le formulaire');
 
 }

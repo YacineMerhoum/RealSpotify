@@ -187,14 +187,16 @@ a {
     border-bottom-left-radius: 5%; 
     
     
-    
-    
 }
 
 #lecteur.visible {
     display: block !important;
     
+    
+    
+    
 }
+
 
 
 /* pochette et titre dans le lecteur a gauche  */
@@ -257,9 +259,7 @@ a {
     transform: scale(1.8);
   }
 
-  .essaie {
-    
-  }
+ 
 
 /* CACHER LE BOUTON PLAY OU PAUSE  */
 
@@ -281,4 +281,7 @@ a {
     cursor: pointer;
     
 }
+
+/* BARRE DE SON TEST  */
+
 

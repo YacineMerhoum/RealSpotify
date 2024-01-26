@@ -130,12 +130,12 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
           <table class="row-column table-dark">
             <tr>
               <th>
-                <h2 class="text white ps-1">Hello world</h2>
+                <h2 class="text white ps-1 border border-white ">Hello world</h2>
               </th>
             </tr>
             <tr>
               <th>
-                <h2 class="text white ps-1">Hello world</h2>
+                <h2 class="text white ps-1 border border-light">Hello world</h2>
               </th>
             </tr>
           </table>
