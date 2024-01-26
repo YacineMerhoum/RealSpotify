@@ -28,23 +28,41 @@
           let audio = this.querySelector("audio");
 
 
-          console.log(audio)
-          
-  
-
-          console.log(affichageLecteur)
         
           lecteur.classList.add("visible");
           audio.play();
-        
-
-          
-            
         });
         });
       });
+        
 
+      ///VOLUME LECTEUR
+
+
+    let volumeControle = document.querySelector("#volume");
+    let musique = document.querySelector("#coverMusic");
+    
+    volumeControle.addEventListener('change', function () {
+        musique.volume = volumeControle.value / 10;
+        
+        
     });
+    
+    //CHANGEMENT COULEUR BOUTTON ALEATOIRE  
+
+    // let logoAleatoire = document.querySelector("#aleatoire");
+    // logoAleatoire.addEventListener("click" , function(){
+    //     logoAleatoire.innerHTML = 
+
+    // });
+  
+      
+     
+
+          
+            
+
+    
 
 
     // CODE PLAY MUSIQUE ONLCICK
