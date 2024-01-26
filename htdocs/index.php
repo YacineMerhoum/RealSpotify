@@ -226,7 +226,6 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
             </label>
             <input type="range" id="volume"  min="0" max="10" />
           </div>
-          
 
           <div class="mt-4 play p-3">       
               <i class="fa-regular fa-heart fa-2xl" id="LIKE"
