@@ -1,7 +1,6 @@
 <?php 
 session_start();
 
-
 if (!empty($_POST['pseudo']) && !empty($_POST['password'])) {
 
     require_once '../config/connexion.php';
@@ -21,6 +20,7 @@ if (!empty($_POST['pseudo']) && !empty($_POST['password'])) {
         
          $_SESSION['id'] = $user['id'];
          $_SESSION['pseudo'] = $user["pseudo"];
+
          
         
          header('Location: ../index.php');

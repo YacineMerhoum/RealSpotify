@@ -1,6 +1,6 @@
 <?php
 session_start();
-// include "./config/verif_superglobal.php";
+//include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 
 $prepareCover = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 6");
@@ -48,11 +48,15 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         echo '<form action="./process/logout.php" method="post">
           <button type="submit"  class="btn btn-outline fs-5 subscribe ">Déconnexion</button>
   </form>';
-      } ?>
+      } 
+      
+      
+      if($_SESSION['pseudo'] == "xxx" || $_SESSION['pseudo'] == "yacine"){?>
+            <a href="./admin.php">ADMIN</a>
+     <?php } 
 
-
-      <!-- condition if pour la connexion également  -->
-      <?php
+      // condition if pour la connexion également 
+      
       if (!empty($_SESSION["pseudo"])) {
       } else {
         echo '<a href="./pagelogin.php">
@@ -140,8 +144,10 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
                   </div>
 
                 </div>
-                <p class="text-white fs-5"><?php echo $key["artiste"] ?></p>
-                <p class="text-secondary fs-6"><?php echo $key["name"] ?> </p>
+
+                      <p class="text-white fs-5"><?=$key["artiste"] ?></p>
+                      <p class="text-secondary fs-6"><?=$key["name"] ?> </p>
+
               </div>
 
             </div>
@@ -185,6 +191,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
           <!-- BOUTON PAUSE !-->
 
+
           <div class="mt-4 play p-3 hiddenPLAY">
             <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
           </div>
@@ -205,8 +212,16 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         </div>
       </section>
 
+                  <div class="mt-4 play p-3">
+                    
+                      <a href="./process/add_Like.php?id_song=<?=$songlist['id']?>" type="submit" name="like" class="essaie text-decoration-none"><i class="fa-regular fa-heart fa-2xl" style="color: #ffffff;"></i></a>
+                    
+                  </div>
 
+                  <?="salut"?>
 
+              </div>      
+      </section>
       <script src="./js/index.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
