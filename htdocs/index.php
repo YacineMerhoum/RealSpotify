@@ -224,7 +224,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
               <i class="fa-solid fa-volume-high fa-2xl" style="color: #ffffff;"></i>
 
             </label>
-            <input type="range" id="volume" name="volume" min="0" max="10" />
+            <input type="range" id="volume"  min="0" max="10" />
           </div>
           
 
