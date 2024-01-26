@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "./config/verif_superglobal.php";
+// include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 
 
@@ -28,29 +28,36 @@ $songlist = $prepareSQL->fetch(PDO::FETCH_ASSOC);
         <img class="logo" src="./images/spotify.png">
       </a>
 
-      </div>
+    </div>
   </nav>
 </header>
 
-    <body>
-            
-<form action="./process/add_song_admin.php" method="post">
+<body>
 
-    <input type="text" name="url" placeholder="url">
-    <input type="text" name="cover" placeholder="cover">
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="artiste" placeholder="artiste">    
-    <input type="hidden" name="like" value="0">
 
-    <button type="submit">ajouter la musique</button>
-    
-</form>
+  <section class="d-flex flex-column text-center">
+  
+  <h1 class="fs-1 text-white mb-5 mt-5">Page administrateur</h1>
+  <h1 class="fs-5 text-white mb-5 ">Réservé aux bg</h1>
+    <div class="fs-3 d-flex justify-content-center">
+  <form action="./process/add_song_admin.php" method="post">
 
-    </body>
+      <input class="mb-5" type="text" name="url" placeholder="url"><br>
+      <input class="mb-5" type="text" name="cover" placeholder="cover"><br>
+      <input class="mb-5"type="text" name="name" placeholder="name"><br>
+      <input class="mb-5" type="text" name="artiste" placeholder="artiste"><br>
+      <input class="mb-5" type="hidden" name="like" value="0"><br>
+
+      <button class="bg-success text-white" type="submit">Ajouter musique</button>
+
+    </form>
+    </div>
+  </section>
+</body>
 
 <script src="./js/index.js"></script>
-      
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>

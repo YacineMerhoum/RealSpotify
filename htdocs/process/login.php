@@ -23,14 +23,18 @@ if (!empty($_POST['pseudo']) && !empty($_POST['password'])) {
 
          
         
-         header('Location: ../index.php');
-         die;
-    }else{
-         header('Location: ../pagelogin.php');
-         die;
-      
 
+        
+         header('Location: ../index.php');
+            exit();
+        } else {
+            header('Location: ../pagelogin.php?error=Mot de passe incorrect!');
+            exit();
+        }
+    } else {
+        header('Location: ../pagelogin.php?error=Adresse mail ou pseudo inexistant!');
+        exit();
     }
-}
+
 
 

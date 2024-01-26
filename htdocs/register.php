@@ -27,6 +27,11 @@ require_once "./config/connexion.php";
 <!-- Section pour connnexion -->
 <section class="sectionlog container">
     <div class="text-center">
+    <?php if (isset($_GET["success"])){
+    } else if (isset($_GET["error"])) {
+      $errorMessage = $_GET["error"];
+      echo '<h1 class="text-warning">' . htmlspecialchars($errorMessage) . '</h1>';
+    } ?>
         <h1 class="text-white ">Inscription</h1>
     </div>
 
