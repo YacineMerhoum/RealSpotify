@@ -226,12 +226,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
             </label>
             <input type="range" id="volume" name="volume" min="0" max="10" />
           </div>
-          <div class="mt-4 play p-3">
 
-              <a href="./process/add_Like.php?id_song=<?= $songlist['id'] ?>
-              " type="submit" name="like" class="essaie text-decoration-none"><i class="fa-regular fa-heart fa-2xl" style="color: #ffffff;"></i></a>
-
-            </div>
 
           <div class="mt-4 play p-3">       
               <i class="fa-regular fa-heart fa-2xl" id="LIKE"
