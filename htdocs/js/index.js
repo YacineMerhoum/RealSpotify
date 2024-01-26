@@ -26,25 +26,29 @@
        
         button.addEventListener("click", function () {
           let audio = this.querySelector("audio");
-
-
-          console.log(audio)
-          
-  
-
-          console.log(affichageLecteur)
-        
           lecteur.classList.add("visible");
           audio.play();
-        
 
+          // AFFICHER CACHER LE BOUTON PLAY
+
+          let Play = document.querySelector('#playMusiquePlay')
+
+          let classe = Play.parentNode.classList;
+          classe.add("hiddenPLAY");
+
+          let classePause = Pause.parentNode.classList;
+          classePause.toggle("hiddenPLAY")
+
+          // FIN AFFICHER CACHER LE BOUTON PLAY
+
+           console.log(audio)
+          console.log(affichageLecteur)
           
-            
         });
         });
       });
 
-    });
+
 
 
     // CODE PLAY MUSIQUE ONLCICK
@@ -82,11 +86,14 @@
         randomPlay.addEventListener("click", function(){
 
             Math.random(document.querySelector('#coverMusic').play())
-            randomPlay.classList.add("activeRandom")
-
-            //utiliser toogle 
+            randomPlay.classList.toggle("activeRandom");
                
         })
+
+
+            // BONTON LIKE 
+
+        
 
 
     // METHODE AJAX POUR MUSIQUE SUIVANTE
@@ -99,6 +106,8 @@
         })
         .then((datas)=>{
                       
+                // NEXT MUSIQUE AJAX
+
             A = 0;
             let BTNnext = document.querySelector('#nextMusique');
             BTNnext.addEventListener("click", function(){
@@ -120,11 +129,17 @@
                     audio.play()  
                     
 
-                    
+
+
+                // PREVIUS MUSIQUE AJAX
+
+                A = NEXT(a)   
+                console.log(NEXT(A))
+
                 let BTNprevius = document.querySelector('#previusMusique');
                 BTNprevius.addEventListener("click", function(){
                 let audio = document.querySelector('#coverMusic')
-                        
+
                 A--
                 
                 function NEXT(n) {

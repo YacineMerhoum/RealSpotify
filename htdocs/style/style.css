@@ -251,6 +251,10 @@ a {
     transform: scale(1.8);
   }
 
+  .essaie {
+    
+  }
+
 /* CACHER LE BOUTON PLAY OU PAUSE  */
 
 .hiddenPLAY {
@@ -259,3 +263,11 @@ a {
     
 }
 
+
+/* couleur de spotify */
+.activeRandom {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    background-color: #1ed760;
+}
