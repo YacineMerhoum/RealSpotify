@@ -85,10 +85,10 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         <button class="btn btn-flex mt-3 text-start" type="button"><a href="./index.php"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Accueil</a></button>
         <button class="btn btn-flex text-start" type="button"><a href=""><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i> Rechercher</a></button>
         <button class="btn btn-flex mt-1 text-start" type="button"><a href="">
-          <i class="fa-solid fa-book-open" style="color: #ffffff;"></i> Bibiliothèque</a></button>
+            <i class="fa-solid fa-book-open" style="color: #ffffff;"></i> Bibiliothèque</a></button>
         <div class="test">
           <div class="inside ">
-            
+
 
             <p class="text-white fs-5 mt-1">C'est parti !</p>
           </div>
@@ -126,91 +126,81 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 
         <!-- test pour les playslist musicales  fais le jeudi-->
-        <div class="d-flex column">
-      
-
-
-
-
-       
-        
-
-          
-
-
-
-
-
-
-          
-
-    
-
-
-          
-
+        <div class="container">
+          <table class="row-column table-dark">
+            <tr>
+              <th>
+                <h2 class="text white ps-1">Hello world</h2>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <h2 class="text white ps-1">Hello world</h2>
+              </th>
+            </tr>
+          </table>
         </div>
-      </div>
-
-
-
-      <!-- lecteur footer -->
-      <!-- /* pochette et titre dans le lecteur a gauche  */ -->
-
-
-      <section class="lecteur d-flex justify-content-around" id="lecteur">
 
 
 
 
+        <!-- lecteur footer -->
+        <!-- /* pochette et titre dans le lecteur a gauche  */ -->
 
 
-                    <!-- BOUTON RANDOM !-->
-              <div class="d-flex align-items-center" >
-
-                  <div class="mt-4 play p-3 ">
-                    <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
-                    <audio id="codeMusiqueRand" src="./music/songs/<?=$songlistrand['url']?>"></audio>
-                    <?=$songlistrand['url']?>
-                  </div>
-                  
-                    <!-- BOUTON AVANT !-->
-                  <div class="mt-4 play p-3">
-                    <i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i>
-                  </div>
-               
-                    <!-- BOUTON PLAY !-->
-
-                    <div class="mt-4 play p-3 play"> 
-                      <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
-                      <audio id="codeMusiquePlay" src="./music/songs/<?=$songlist['url']?>"></audio>
-                    </div> 
-
-                    <!-- BOUTON PAUSE !-->
-
-                    <div class="mt-4 play p-3 hiddenPLAY"> 
-                      <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
-                      <audio id="codeMusiquePause" src="./music/songs/<?=$songlist['url']?>"></audio>
-                  </div> 
-                    <!-- BOUTON APRES !-->
-                  <div class="mt-4 play p-3">
-                    <i class="fa-solid fa-forward fa-2xl" style="color: #ffffff;"></i>
-                  </div>
-              </div>      
-            </section>
-
-     
+        <section class="lecteur d-flex justify-content-around" id="lecteur">
 
 
 
 
 
 
+          <!-- BOUTON RANDOM !-->
+          <div class="d-flex align-items-center">
+
+            <div class="mt-4 play p-3 ">
+              <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
+              <audio id="codeMusiqueRand" src="./music/songs/<?= $songlistrand['url'] ?>"></audio>
+              <?= $songlistrand['url'] ?>
+            </div>
+
+            <!-- BOUTON AVANT !-->
+            <div class="mt-4 play p-3">
+              <i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i>
+            </div>
+
+            <!-- BOUTON PLAY !-->
+
+            <div class="mt-4 play p-3 play">
+              <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
+              <audio id="codeMusiquePlay" src="./music/songs/<?= $songlist['url'] ?>"></audio>
+            </div>
+
+            <!-- BOUTON PAUSE !-->
+
+            <div class="mt-4 play p-3 hiddenPLAY">
+              <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
+              <audio id="codeMusiquePause" src="./music/songs/<?= $songlist['url'] ?>"></audio>
+            </div>
+            <!-- BOUTON APRES !-->
+            <div class="mt-4 play p-3">
+              <i class="fa-solid fa-forward fa-2xl" style="color: #ffffff;"></i>
+            </div>
+          </div>
+        </section>
 
 
-      <script src="./js/index.js"></script>
-      
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+        <script src="./js/index.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
