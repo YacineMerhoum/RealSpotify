@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "./config/verif_superglobal.php";
+// include "./config/verif_superglobal.php";
 require_once "./config/connexion.php";
 
 $prepareCover = $connexion->prepare("SELECT * FROM songs ORDER BY RAND() LIMIT 6");
@@ -224,9 +224,8 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
               <i class="fa-solid fa-volume-high fa-2xl" style="color: #ffffff;"></i>
 
             </label>
-            <input type="range" id="volume" name="volume" min="0" max="10" />
+            <input type="range" id="volume"  min="0" max="10" />
           </div>
-
 
           <div class="mt-4 play p-3">       
               <i class="fa-regular fa-heart fa-2xl" id="LIKE"
