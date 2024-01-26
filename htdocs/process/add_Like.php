@@ -26,21 +26,20 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 if (!$songlist) {
 
-    $songlist->prepare(
+    $insertlike = $connexion->prepare(
     "INSERT INTO liked (id_user, id_song) VALUES (?, ?)");
 
-    $songlist->execute([
-        $_POST['id_song'],
-        $_SESSION['id']
+    $insertlike->execute([
+        $_SESSION['id'],
+        $_POST['id_song']
     ]);
 
 }else{
     echo "salut";
 };
 
+echo json_encode($songlist);
 
-var_dump(json_encode($songlist));
-die;
 
 
 
