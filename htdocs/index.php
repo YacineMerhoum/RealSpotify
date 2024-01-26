@@ -78,7 +78,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         <button class="btn btn-flex mt-3 text-start" type="button"><a href="./index.php"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Accueil</a></button>
         <button class="btn btn-flex text-start" type="button"><a href=""><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i> Rechercher</a></button>
         <button class="btn btn-flex mt-1 text-start" type="button"><a href="./playlist.php">
-          <i class="fa-solid fa-book-open" style="color: #ffffff;"></i> Bibiliothèque</a></button>
+            <i class="fa-solid fa-book-open" style="color: #ffffff;"></i> Bibiliothèque</a></button>
         <div class="test">
           <div class="inside ">
             <button class="btn btn-flex mt-5 btninside" type="button"><a href="./playlist.php">Créer une playlist</a></button>
@@ -122,7 +122,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         <div class="d-flex justify-content-center scroll ">
 
           <?php foreach ($coverlist as $key) { ?>
-            
+
 
             <div class="p-2 flexa ms-4" id="flexa">
 
@@ -134,19 +134,19 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
                     <div id="startmusic">
                       <i class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
-                      <audio id="coverMusic" src="./music/songs/<?=$key["url"]?>"></audio>
-                    </div> 
-                    
+                      <audio id="coverMusic" src="./music/songs/<?= $key["url"] ?>"></audio>
+                    </div>
+
                   </div>
 
                 </div>
-                      <p class="text-white fs-5"><?php echo $key["artiste"] ?></p>
-                      <p class="text-secondary fs-6"><?php echo $key["name"] ?> </p>
+                <p class="text-white fs-5"><?php echo $key["artiste"] ?></p>
+                <p class="text-secondary fs-6"><?php echo $key["name"] ?> </p>
               </div>
 
             </div>
 
-          <?php } ?>   
+          <?php } ?>
         </div>
 
 
@@ -159,44 +159,56 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 
 
-      <section class="d-flex justify-content-around " id="lecteur" >
+      <section class="d-flex justify-content-center lecteur" id="lecteur">
+        
+        
+        <div class="text-white fs-6"><?= $songlist["name"] ?></div>
+        <div class="text-success fs-5"><?= $songlist["artiste"] ?></div>
+        
+        <!-- BOUTON RANDOM ! -->
+        <div class="d-flex justify-content-center">
 
+          <div class="mt-4 play p-3" id="aleatoire">
+            <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
+          </div>
 
-                    <!-- BOUTON RANDOM !-->
-              <div class="d-flex align-items-center" >
+          <!-- BOUTON AVANT !-->
+          <div class="mt-4 play p-3">
+            <i class="fa-solid fa-backward fa-2xl" id="previusMusique" style="color: #ffffff;"></i>
+          </div>
 
-                  <div class="mt-4 play p-3 ">
-                    <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
-                  </div>
-                  
-                    <!-- BOUTON AVANT !-->
-                  <div class="mt-4 play p-3">
-                    <i class="fa-solid fa-backward fa-2xl" id="previusMusique" style="color: #ffffff;"></i>
-                  </div>
-               
-                    <!-- BOUTON PLAY !-->
+          <!-- BOUTON PLAY !-->
 
-                    <div class="mt-4 play p-3 play"> 
-                      <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
-                    </div> 
+          <div class="mt-4 play p-3 play">
+            <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
+          </div>
 
-                    <!-- BOUTON PAUSE !-->
+          <!-- BOUTON PAUSE !-->
 
-                    <div class="mt-4 play p-3 hiddenPLAY"> 
-                      <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
-                  </div> 
-                    <!-- BOUTON APRES !-->
-                  <div class="mt-4 play p-3">
-                    <i class="fa-solid fa-forward fa-2xl" id="nextMusique" style="color: #ffffff;"></i>
-                  </div>
+          <div class="mt-4 play p-3 hiddenPLAY">
+            <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
+          </div>
+          <!-- BOUTON APRES !-->
+          <div class="mt-4 play p-3">
+            <i class="fa-solid fa-forward fa-2xl" id="nextMusique" style="color: #ffffff;"></i>
+          </div>
+          <div class="mt-4 play p-3">
 
-              </div>      
+            <!-- volume -->
+            <label for="volume">
+              <i class="fa-solid fa-volume-high fa-2xl" style="color: #ffffff;"></i>
+
+            </label>
+            <input type="range" id="volume" name="volume" min="0" max="10" />
+          </div>
+
+        </div>
       </section>
 
 
 
       <script src="./js/index.js"></script>
-      
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
