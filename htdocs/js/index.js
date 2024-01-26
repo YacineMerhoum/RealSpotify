@@ -19,6 +19,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       let startButtons = document.querySelectorAll("#startmusic");
       let lecteur = document.getElementById("lecteur");
+      let currentAudio = null;
     
       console.log(startButtons)  
 
@@ -26,33 +27,33 @@
        
         button.addEventListener("click", function () {
           let audio = this.querySelector("audio");
-          lecteur.classList.add("visible");
-          audio.play();
 
-          // AFFICHER CACHER LE BOUTON PLAY
-
-
-          let Play = document.querySelector('#playMusiquePlay')
-
-          let classe = Play.parentNode.classList;
-          classe.add("hiddenPLAY");
-
-          let classePause = Pause.parentNode.classList;
-          classePause.toggle("hiddenPLAY")
-
-          // FIN AFFICHER CACHER LE BOUTON PLAY
-
-           console.log(audio)
-          console.log(affichageLecteur)
           
+          let nameSong = document.querySelector(".nameSong") // Affiche au click le nom sur le lecteur
+          nameSong.innerHTML = button.classList
 
+
+          let artisteSong = document.querySelector(".artisteSong") // Affiche au click l'artiste sur le lecteur
+          artisteSong.innerHTML = button.dataset.artiste
+
+        //   let coverSong = document.querySelector(".coverLecteur")
+        //   coverSong.innerHTML = button.dataset.cover 
+        if (currentAudio) {
+            // Si une chanson est déjà en cours de lecture, arrêtez-la
+            currentAudio.pause();
+            currentAudio.currentTime = 0; // Remet la lecture au début
+        }
+
+        lecteur.classList.add("visible");
+        audio.play();
+        currentAudio = audio;
+    });
+    });
+  });
+
+
+            
         
-          lecteur.classList.add("visible");
-          audio.play();
-
-        });
-        });
-      });
         
 
       ///VOLUME LECTEUR
@@ -65,7 +66,24 @@
         
         
     });
-     
+
+    
+    //CHANGEMENT COULEUR BOUTTON ALEATOIRE  
+
+    // let logoAleatoire = document.querySelector("#aleatoire");
+    // logoAleatoire.addEventListener("click" , function(){
+    //     logoAleatoire.innerHTML = 
+
+    // });
+
+    //bouton aléatoire VERT au click
+   
+    let aleatoireButton = document.querySelector("#MusiqueRandom");
+    aleatoireButton.addEventListener("click", function() {
+
+        aleatoireButton.style.color = "#1ed760";
+
+    });
 
     // CODE PLAY MUSIQUE ONLCICK
 
@@ -102,9 +120,12 @@
         randomPlay.addEventListener("click", function(){
 
             Math.random(document.querySelector('#coverMusic').play())
-            randomPlay.classList.toggle("activeRandom");
+            randomPlay.classList.add("activeRandom")
+
+            //utiliser toogle 
                
         })
+
 
 
             // INCREMENTATION DE A POUR SE DEPLACER DANS LES MUSIQUES
@@ -112,6 +133,7 @@
                 let A = 0;
 
             // //FIN 
+
 
 
     // METHODE AJAX POUR MUSIQUE SUIVANTE
@@ -124,7 +146,6 @@
         })
         .then((datas)=>{
                       
-            // A = 0;
 
             let BTNnext = document.querySelector('#nextMusique');
             BTNnext.addEventListener("click", function(){
@@ -174,6 +195,7 @@
             })          
         })
     }
+
     process2();
 
     

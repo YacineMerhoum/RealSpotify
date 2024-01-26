@@ -48,6 +48,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         echo '<form action="./process/logout.php" method="post">
           <button type="submit"  class="btn btn-outline fs-5 subscribe ">Déconnexion</button>
   </form>';
+
       } 
       
       if (!empty($_SESSION['pseudo'])) {
@@ -58,8 +59,16 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
       
       } 
 
+
       // condition if pour la connexion également 
-      
+
+      if (!empty($_SESSION['pseudo'])) {
+
+        if ($_SESSION['pseudo'] == "xxx" || $_SESSION['pseudo'] == "Yacine") { ?>
+          <a href="./admin.php">ADMIN</a>
+      <?php }
+      }
+
       if (!empty($_SESSION["pseudo"])) {
       } else {
         echo '<a href="./pagelogin.php">
@@ -139,8 +148,9 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
                   <div class="startmusic">
 
-                    <div id="startmusic">
-                      <i class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
+                    <div id="startmusic" class="<?= $key["name"]?>" data-artiste="<?= $key["artiste"]?>"
+                    data-cover="<?= $key["cover"] ?>">
+                      <i  class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
                       <audio id="coverMusic" src="./music/songs/<?= $key["url"] ?>"></audio>
                     </div>
 
@@ -148,14 +158,16 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
                 </div>
 
-                      <p class="text-white fs-5"><?=$key["artiste"] ?></p>
-                      <p class="text-secondary fs-6"><?=$key["name"] ?> </p>
+                <p class="text-white fs-5"><?= $key["artiste"] ?></p>
+                <p class="text-secondary fs-6"><?= $key["name"] ?> </p>
 
               </div>
 
             </div>
 
           <?php } ?>
+          <!-- test barre de son  -->
+
         </div>
 
 
@@ -168,17 +180,20 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 
 
-      <section class="d-flex justify-content-center lecteur" id="lecteur">
-        
-        
-        <div class="text-white fs-6"><?= $songlist["name"] ?></div>
-        <div class="text-success fs-5"><?= $songlist["artiste"] ?></div>
-        
+      <section class="d-flex justify-content-center lecteur music-title" id="lecteur">
+
+
+        <div class="text-white fs-6 nameSong">  </div>
+        <div class="text-success fs-5 artisteSong"> </div>
+
         <!-- BOUTON RANDOM ! -->
         <div class="d-flex justify-content-center">
+            
+            <!-- div vide pour éventuelle cover sur le lecteur  -->
+          <div class="coverLecteur"></div>
 
           <div class="mt-4 play p-3" id="aleatoire">
-            <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
+            <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl " style="color: #ffffff;"></i>
           </div>
 
           <!-- BOUTON AVANT !-->
@@ -211,6 +226,12 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
             </label>
             <input type="range" id="volume" name="volume" min="0" max="10" />
           </div>
+          <div class="mt-4 play p-3">
+
+              <a href="./process/add_Like.php?id_song=<?= $songlist['id'] ?>
+              " type="submit" name="like" class="essaie text-decoration-none"><i class="fa-regular fa-heart fa-2xl" style="color: #ffffff;"></i></a>
+
+            </div>
 
           <div class="mt-4 play p-3">       
               <i class="fa-regular fa-heart fa-2xl" id="LIKE"
@@ -223,16 +244,14 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
         </div>
       </section>
+     
+     
 
-                  
+    </div>
+    </section>
+    <script src="./js/index.js"></script>
 
-                  
-
-              </div>      
-      </section>
-      <script src="./js/index.js"></script>
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
