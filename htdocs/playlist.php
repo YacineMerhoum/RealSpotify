@@ -17,6 +17,15 @@ $prepareSQL2 = $connexion->prepare("SELECT * FROM songs ORDER BY id ASC LIMIT 6"
 $prepareSQL2->execute();
 $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
+$prepareSQL3 = $connexion->prepare(
+  "SELECT * FROM liked 
+    JOIN users 
+      ON liked.id_user = users.id
+    JOIN songs
+      ON liked.id_song = songs.id
+    ");
+$prepareSQL3->execute();
+$liked_user_song = $prepareSQL3->fetchALl(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -125,18 +134,16 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
         <br>
 
 
-        <!-- test pour les playslist musicales  fais le jeudi-->
+        <!-- test pour les playslist musicales fais le jeudi-->
         <div class="container">
           <table class="row-column table-dark">
             <tr>
               <th>
-                <h2 class="text white ps-1 border border-white ">Hello world</h2>
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <h2 class="text white ps-1 border border-light">Hello world</h2>
-              </th>
+                <?php foreach ($liked_user_song as $liked) {
+                   ?> <div class="likedcover" style="background-image: url('../images/<?= $liked["cover"] ?>')">
+                      <div class="text-white"> <?=$liked['name'] . " " . $liked['artiste']?>
+                <?php };?>
+            </th>
             </tr>
           </table>
         </div>

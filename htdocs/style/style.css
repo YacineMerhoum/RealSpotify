@@ -184,17 +184,11 @@ a {
     height: 20%;
     background-color: rgba(68, 68, 68, 0.49);
     border-bottom-right-radius: 5%;
-    border-bottom-left-radius: 5%; 
-    
-    
+    border-bottom-left-radius: 5%;    
 }
 
 #lecteur.visible {
-    display: block !important;
-    
-    
-    
-    
+    display: block !important;   
 }
 
 
@@ -235,8 +229,7 @@ a {
 
     height: 100%;
     width: 100%;
-    background-size: cover;
-    
+    background-size: cover;   
 }
 
 
@@ -283,4 +276,8 @@ a {
 
 /* BARRE DE SON TEST  */
 
-
+.likedcover {
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+}

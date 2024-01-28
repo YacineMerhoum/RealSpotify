@@ -51,11 +51,6 @@
     });
   });
 
-
-            
-        
-        
-
       ///VOLUME LECTEUR
 
     let volumeControle = document.querySelector("#volume");
@@ -160,7 +155,7 @@
                  NEXT(A);
                 
                 audio.src = `./music/songs/${datas[A]['url']}`;
-                audio.play()     
+                // audio.play()     
             })          
         })
     }
@@ -191,7 +186,7 @@
                  NEXT(A)
                
                     audio.src = `./music/songs/${datas[A]['url']}`;
-                    audio.play()
+                    // audio.play()
             })          
         })
     }
