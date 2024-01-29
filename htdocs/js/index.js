@@ -65,7 +65,7 @@
         currentAudio = audio;
     });
     });
-  });   
+
 
       ///VOLUME LECTEUR
 
@@ -156,7 +156,7 @@
                  NEXT(A);
                 
                 audio.src = `./music/songs/${datas[A]['url']}`;
-                audio.play()     
+                // audio.play()     
             })          
         })
     }
@@ -187,7 +187,7 @@
                  NEXT(A)
                
                     audio.src = `./music/songs/${datas[A]['url']}`;
-                    audio.play()
+                    // audio.play()
             })          
         })
     }

@@ -35,7 +35,10 @@ if (!$songlist) {
     ]);
 
 }else{
-    echo "salut";
+    $delateLike = $connexion->prepare(
+        "DELETE FROM liked WHERE id = 1"
+    );
+    $delateLike->execute();
 };
 
 echo json_encode($songlist);

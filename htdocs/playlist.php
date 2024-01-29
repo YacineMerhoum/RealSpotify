@@ -17,9 +17,21 @@ $prepareSQL2 = $connexion->prepare("SELECT * FROM songs ORDER BY id ASC LIMIT 6"
 $prepareSQL2->execute();
 $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
+
+$prepareSQL3 = $connexion->prepare(
+  "SELECT * FROM liked 
+    JOIN users 
+      ON liked.id_user = users.id
+    JOIN songs
+      ON liked.id_song = songs.id
+    ");
+$prepareSQL3->execute();
+$liked_user_song = $prepareSQL3->fetchALl(PDO::FETCH_ASSOC);
+
 $preparedRequest = $connexion->prepare("SELECT * FROM `liked` WHERE `id_song`");
 $preparedRequest->execute();
 $trackList = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 ?>
@@ -129,20 +141,19 @@ $trackList = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
         <br>
 
 
-        <!-- test pour les playslist musicales  fais le jeudi-->
-        <div class="mt-5">
+        <!-- test pour les playslist musicales fais le jeudi-->
+        <div class="container">
+          <table class="row-column table-dark">
+            <tr>
+              <th>
+                <?php foreach ($liked_user_song as $liked) {
+                   ?> <div class="likedcover" style="background-image: url('../images/<?= $liked["cover"] ?>')">
+                      <div class="text-white"> <?=$liked['name'] . " " . $liked['artiste']?>
+                <?php };?>
+            </th>
+            </tr>
+          </table>
 
-          <?php foreach ($trackList as $key) { ?>
-            <div class="tracklist d-flex">
-            <h2 class="text-white"> <?= $key["id_user"] ?> <?=$key["id_song"]?> 
-            </h2>
-            
-            <audio class="audiocontrols" controls src=""></audio>
-            
-            </div>
-            <?php } ?>
-             
-            
         </div>
 
 
