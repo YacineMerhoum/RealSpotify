@@ -17,6 +17,7 @@ $prepareSQL2 = $connexion->prepare("SELECT * FROM songs ORDER BY id ASC LIMIT 6"
 $prepareSQL2->execute();
 $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
+
 $prepareSQL3 = $connexion->prepare(
   "SELECT * FROM liked 
     JOIN users 
@@ -26,6 +27,11 @@ $prepareSQL3 = $connexion->prepare(
     ");
 $prepareSQL3->execute();
 $liked_user_song = $prepareSQL3->fetchALl(PDO::FETCH_ASSOC);
+
+$preparedRequest = $connexion->prepare("SELECT * FROM `liked` WHERE `id_song`");
+$preparedRequest->execute();
+$trackList = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 ?>
@@ -100,6 +106,7 @@ $liked_user_song = $prepareSQL3->fetchALl(PDO::FETCH_ASSOC);
 
 
             <p class="text-white fs-5 mt-1">C'est parti !</p>
+            
           </div>
         </div>
       </div>
@@ -146,6 +153,7 @@ $liked_user_song = $prepareSQL3->fetchALl(PDO::FETCH_ASSOC);
             </th>
             </tr>
           </table>
+
         </div>
 
 
@@ -153,53 +161,6 @@ $liked_user_song = $prepareSQL3->fetchALl(PDO::FETCH_ASSOC);
 
         <!-- lecteur footer -->
         <!-- /* pochette et titre dans le lecteur a gauche  */ -->
-
-
-        <section class="lecteur d-flex justify-content-around" id="lecteur">
-
-
-
-
-
-
-          <!-- BOUTON RANDOM !-->
-          <div class="d-flex align-items-center">
-
-            <div class="mt-4 play p-3 ">
-              <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl" style="color: #ffffff;"></i>
-              <audio id="codeMusiqueRand" src="./music/songs/<?= $songlistrand['url'] ?>"></audio>
-              <?= $songlistrand['url'] ?>
-            </div>
-
-            <!-- BOUTON AVANT !-->
-            <div class="mt-4 play p-3">
-              <i class="fa-solid fa-backward fa-2xl" style="color: #ffffff;"></i>
-            </div>
-
-            <!-- BOUTON PLAY !-->
-
-            <div class="mt-4 play p-3 play">
-              <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
-              <audio id="codeMusiquePlay" src="./music/songs/<?= $songlist['url'] ?>"></audio>
-            </div>
-
-            <!-- BOUTON PAUSE !-->
-
-            <div class="mt-4 play p-3 hiddenPLAY">
-              <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
-              <audio id="codeMusiquePause" src="./music/songs/<?= $songlist['url'] ?>"></audio>
-            </div>
-            <!-- BOUTON APRES !-->
-            <div class="mt-4 play p-3">
-              <i class="fa-solid fa-forward fa-2xl" style="color: #ffffff;"></i>
-            </div>
-          </div>
-        </section>
-
-
-
-
-
 
 
 

@@ -10,6 +10,22 @@
         }, 2000); 
     });
 
+    // BOUTON LIKE ANIMÉ AU CLICK 
+    let buttonLike = document.querySelector(".heartIcon")
+    buttonLike.addEventListener("click" , function(){
+        buttonLike.classList.toggle("enlarged")
+    });
+    // /  /CHANGEMENT COULEUR BOUTTON ALEATOIRE  
+
+   
+  let aleatoireButton = document.querySelector("#MusiqueRandom");
+  aleatoireButton.addEventListener("click", function() {
+
+      aleatoireButton.classList.toggle("ramdombutton")
+      aleatoireButton.classList.toggle("normal")
+  });
+
+
 
 
     //TEST START MUSIC BUTTON GREEN CODE YACINE
@@ -49,36 +65,21 @@
         currentAudio = audio;
     });
     });
-  });
+
 
       ///VOLUME LECTEUR
 
     let volumeControle = document.querySelector("#volume");
-    let musique = document.querySelector("#coverMusic");
-    
+    let musiques = document.querySelectorAll(".coverMusic");
+
     volumeControle.addEventListener('change', function () {
-        musique.volume = volumeControle.value / 10;
-        
-        
+        musiques.forEach(function (musique) {
+            musique.volume = volumeControle.value / 10;
     });
+});
 
     
-    //CHANGEMENT COULEUR BOUTTON ALEATOIRE  
-
-    // let logoAleatoire = document.querySelector("#aleatoire");
-    // logoAleatoire.addEventListener("click" , function(){
-    //     logoAleatoire.innerHTML = 
-
-    // });
-
-    //bouton aléatoire VERT au click
-   
-    let aleatoireButton = document.querySelector("#MusiqueRandom");
-    aleatoireButton.addEventListener("click", function() {
-
-        aleatoireButton.style.color = "#1ed760";
-
-    });
+  
 
     // CODE PLAY MUSIQUE ONLCICK
 
@@ -86,7 +87,7 @@
     let Play = document.querySelector('#playMusiquePlay')
 
     Play.addEventListener("click", function(){
-        document.querySelector('#coverMusic').play();
+        document.querySelector('.coverMusic').play();
 
         let classe = Play.parentNode.classList;
         classe.toggle("hiddenPLAY");
@@ -99,7 +100,7 @@
     let Pause = document.querySelector('#playMusiquePause')
 
         Pause.addEventListener("click", function(){        
-            document.querySelector('#coverMusic').pause();  
+            document.querySelector('.coverMusic').pause();  
 
             let classePause = Pause.parentNode.classList;
             classePause.toggle("hiddenPLAY");
@@ -114,7 +115,7 @@
 
         randomPlay.addEventListener("click", function(){
 
-            Math.random(document.querySelector('#coverMusic').play())
+            Math.random(document.querySelector('.coverMusic').play())
             randomPlay.classList.add("activeRandom")
 
             //utiliser toogle 
@@ -145,7 +146,7 @@
             let BTNnext = document.querySelector('#nextMusique');
             BTNnext.addEventListener("click", function(){
 
-                let audio = document.querySelector('#coverMusic')
+                let audio = document.querySelector('.coverMusic')
                 
                 A++  
 
@@ -175,7 +176,7 @@
                 let BTNprevius = document.querySelector('#previusMusique');
                 BTNprevius.addEventListener("click", function(){
 
-                let audio = document.querySelector('#coverMusic')
+                let audio = document.querySelector('.coverMusic')
             
                  A--
                 

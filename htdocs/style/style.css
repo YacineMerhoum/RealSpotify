@@ -45,6 +45,7 @@ body {
     width: 60%;
     margin-left: 20%;
     border-radius: 5%;
+    transition: all 0.5s ease-in-out 0s;
 }
 
 .bouton:hover {
@@ -52,6 +53,8 @@ body {
     height: 62px;
     width: 61%;
     border-radius: 5%;
+    font-size: 1.2rem;
+    border: solid rgba(0, 0, 0, 0);
 
 }
 
@@ -275,6 +278,113 @@ a {
 }
 
 /* BARRE DE SON TEST  */
+.polling_message {
+    color: white;
+    float: left;
+    margin-right: 2%;
+  }
+  
+  .view_port {
+    background-color: black;
+    height: 25px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .cylon_eye {
+    background-color:#1ed760;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9) 25%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.9) 75%
+    );
+    color: white;
+    height: 100%;
+    width: 20%;
+  
+    -webkit-animation: 4s linear 0s infinite alternate move_eye;
+    animation: 4s linear 0s infinite alternate move_eye;
+  }
+  
+  @-webkit-keyframes move_eye {
+    from {
+      margin-left: -20%;
+    }
+    to {
+      margin-left: 100%;
+    }
+  }
+  @keyframes move_eye {
+    from {
+      margin-left: -20%;
+    }
+    to {
+      margin-left: 100%;
+    }
+  }
+  
+
+  /* #message {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  #message.visible {
+    opacity: 1;
+    transform: translateX(0);
+  } */
+
+
+  /* LECTEUR QUI SLIDEIN   */
+
+  .backgroundsection {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #1ed760;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.line {
+    animation: slideIn 1s ease-in-out;
+}
+.tracklist {
+    background-color: #6f6c6c93;
+    border-radius: 5%;
+    border: solid;
+    border-color: #1ed760;
+}
+
+.audiocontrols{
+    appearance: none;
+    background-color: #6f6c6c93;
+}
+
+/* BUTTON LIKE ANIME */
+.enlarged {
+    transform: scale(1.7);
+    color: red !important;
+    transition: 1s;   
+  }
+/* BUTTON ALEATOIRE ANIME */
+.ramdombutton {
+    transform: scale(1.6);
+    color:  #1ed760!important;
+    transition: 1s;   
+  }
 
 .likedcover {
     height: 100px;

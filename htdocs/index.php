@@ -136,7 +136,7 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
                     <div id="startmusic" class="<?= $key["name"]?>" data-artiste="<?= $key["artiste"]?>"
                         data-cover="<?= $key["cover"] ?>">
                       <i  class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
-                      <audio id="coverMusic" src="./music/songs/<?= $key["url"] ?>"></audio>
+                      <audio class="coverMusic" src="./music/songs/<?= $key["url"] ?>"></audio>
                     </div>
 
                   </div>
@@ -161,11 +161,18 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 
 
-      <section class="d-flex justify-content-center lecteur music-title" id="lecteur">
-
+      <section class="d-flex justify-content-center lecteur music-title backgroundsection" id="lecteur" >
+        <div class="line">
 
         <div class="text-white fs-6 nameSong">  </div>
         <div class="text-success fs-5 artisteSong"> </div>
+        
+        <!-- ANIMATION TEST -->
+        <!-- <div class="view_port">
+        <div class="polling_message"> </div>
+        <div class="cylon_eye"></div>
+        </div> -->
+
 
         <!-- BOUTON RANDOM ! -->
         <div class="d-flex justify-content-center">
@@ -206,21 +213,25 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
             <input type="range" id="volume"  min="0" max="10" />
           </div>
 
-          <!-- BOUTON LIKE  -->
 
-          <?php if (!empty($_SESSION['id'])) { ?> 
-            
+
+          <?php if (isset($_SESSION["pseudo"]) && $_SESSION["pseudo"]) { ?>
             <div class="mt-4 play p-3">       
-              <i class="fa-regular fa-heart fa-2xl" id="LIKE" style="color: #ffffff;"
+              <i class="fa-regular fa-heart fa-2xl heartIcon" id="LIKE"
                   data-url_song="<?=$songlist['url']?>" 
                   data-id_song="<?=$songlist['id']?>"
                   data-user_name="<?=$_SESSION['pseudo']?>"
-                  data-user_id="<?=$_SESSION['id']?>">
-              </i>     
-            </div>
-          <?php } ?>
+                  data-user_id="<?=$_SESSION['id']?>"
+                  style="color: #ffffff;"></i>     
+              </div>
+          <?php } else { 
+            echo "<p class='text-white fs-5 mt-4'>Connectez-vous pour liker vos sons</p>";
+                } ?>
+
+        </div>      
         </div>
       </section>
+    
     </div>
   </section>
 
