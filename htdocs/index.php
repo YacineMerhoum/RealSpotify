@@ -36,20 +36,19 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 
       <?php
-      
+
       if (!empty($_SESSION["pseudo"])) {
       } else {
         echo '<a href="./register.php">
         <!-- inscription  -->
         <button class="btn btn-outline fs-5 subscribe " type="submit">S\'inscrire</button>
         </a>';
-      }; 
+      };
 
       if (!empty($_SESSION["pseudo"])) {
         echo '<form action="./process/logout.php" method="post">
         <button type="submit"  class="btn btn-outline fs-5 subscribe ">Déconnexion</button>
         </form>';
-
       };
 
       if (!empty($_SESSION['pseudo'])) {
@@ -133,9 +132,8 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
                   <div class="startmusic">
 
-                    <div id="startmusic" class="<?= $key["name"]?>" data-artiste="<?= $key["artiste"]?>"
-                        data-cover="<?= $key["cover"] ?>">
-                      <i  class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
+                    <div id="startmusic" class="<?= $key["name"] ?>" data-artiste="<?= $key["artiste"] ?>" data-cover="<?= $key["cover"] ?>">
+                      <i class="fa-solid fa-circle-play fa-2xl hiddenLogo" style="color: #33d17a;"></i>
                       <audio class="coverMusic" src="./music/songs/<?= $key["url"] ?>"></audio>
                     </div>
 
@@ -161,83 +159,84 @@ $songlist = $prepareSQL2->fetch(PDO::FETCH_ASSOC);
 
 
 
-      <section class="d-flex justify-content-center lecteur music-title backgroundsection" id="lecteur" >
+      <section class="d-flex justify-content-center lecteur music-title backgroundsection" id="lecteur">
         <div class="line">
 
-        <div class="text-white fs-6 nameSong">  </div>
-        <div class="text-success fs-5 artisteSong"> </div>
-        
-        <!-- ANIMATION TEST -->
-        <!-- <div class="view_port">
+          <div class="text-white fs-6 nameSong"> </div>
+          <div class="text-success fs-5 artisteSong"> </div>
+
+          <!-- ANIMATION TEST -->
+          <!-- <div class="view_port">
         <div class="polling_message"> </div>
         <div class="cylon_eye"></div>
         </div> -->
 
 
-        <!-- BOUTON RANDOM ! -->
-        <div class="d-flex justify-content-center">
-            
+          <!-- BOUTON RANDOM ! -->
+          <div class="d-flex justify-content-center">
+
             <!-- div vide pour éventuelle cover sur le lecteur  -->
-          <div class="coverLecteur"></div>
+            <div class="coverLecteur"></div>
 
-          <div class="mt-4 play p-3" id="aleatoire">
-            <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl " style="color: #ffffff;"></i>
-          </div>
+            <div class="mt-4 play p-3" id="aleatoire">
+              <i id="MusiqueRandom" class="fa-solid fa-shuffle fa-2xl " style="color: #ffffff;"></i>
+            </div>
 
-          <!-- BOUTON AVANT !-->
-          <div class="mt-4 play p-3">
-            <i class="fa-solid fa-backward fa-2xl" id="previusMusique" style="color: #ffffff;"></i>
-          </div>
+            <!-- BOUTON AVANT !-->
+            <div class="mt-4 play p-3">
+              <i class="fa-solid fa-backward fa-2xl" id="previusMusique" style="color: #ffffff;"></i>
+            </div>
 
-          <!-- BOUTON PLAY !-->
-          <div class="mt-4 play p-3 play">
-            <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
-          </div>
+            <!-- BOUTON PLAY !-->
+            <div class="mt-4 play p-3 play">
+              <i id="playMusiquePlay" class="fa-solid fa-play fa-2xl" style="color: #ffffff;"> </i>
+            </div>
 
-          <!-- BOUTON PAUSE !-->
-          <div class="mt-4 play p-3 hiddenPLAY">
-            <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
-          </div>
+            <!-- BOUTON PAUSE !-->
+            <div class="mt-4 play p-3 hiddenPLAY">
+              <i id="playMusiquePause" class="fa-regular fa-circle-pause fa-2xl" style="color: #ffffff;"></i>
+            </div>
 
-          <!-- BOUTON APRES !-->
-          <div class="mt-4 play p-3">
-            <i class="fa-solid fa-forward fa-2xl" id="nextMusique" style="color: #ffffff;"></i>
-          </div>
-          <div class="mt-4 play p-3">
+            <!-- BOUTON APRES !-->
+            <div class="mt-4 play p-3">
+              <i class="fa-solid fa-forward fa-2xl" id="nextMusique" style="color: #ffffff;"></i>
+            </div>
+            <div class="mt-4 play p-3">
 
-            <!-- volume -->
-            <label for="volume">
-              <i class="fa-solid fa-volume-high fa-2xl" style="color: #ffffff;"></i>
+              <!-- volume -->
+              <label for="volume">
+                <i class="fa-solid fa-volume-high fa-2xl" style="color: #ffffff;"></i>
 
-            </label>
-            <input type="range" id="volume"  min="0" max="10" />
-          </div>
+              </label>
+              <input type="range" id="volume" min="0" max="10" />
+            </div>
 
 
 
-          <?php if (isset($_SESSION["pseudo"]) && $_SESSION["pseudo"]) { ?>
-            <div class="mt-4 play p-3">       
-              <i class="fa-regular fa-heart fa-2xl heartIcon" id="LIKE"
-                  data-url_song="<?=$songlist['url']?>" 
-                  data-id_song="<?=$songlist['id']?>"
-                  data-user_name="<?=$_SESSION['pseudo']?>"
-                  data-user_id="<?=$_SESSION['id']?>"
-                  style="color: #ffffff;"></i>     
+            <?php if (isset($_SESSION["pseudo"]) && $_SESSION["pseudo"]) { ?>
+              <div class="mt-4 play p-3">
+                <i class="fa-regular fa-heart fa-2xl heartIcon" id="LIKE" 
+                data-url_song="<?= $songlist['url'] ?>"
+                 data-id_song="<?= $songlist['id'] ?>" 
+                data-user_name="<?= $_SESSION['pseudo'] ?>" 
+                data-user_id="<?= $_SESSION['id'] ?>" 
+                style="color: #ffffff;"></i>
               </div>
-          <?php } else { 
-            echo "<p class='text-white fs-5 mt-4'>Connectez-vous pour liker vos sons</p>";
-                } ?>
+            <?php } else {
+              echo "<p class='text-white fs-5 mt-4'>Connectez-vous pour liker vos sons</p>";
+            } ?>
 
-        </div>      
+          </div>
         </div>
       </section>
-    
+
     </div>
-  </section>
+    </section>
 
 
     <script src="./js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-  </body>
+</body>
+
 </html>

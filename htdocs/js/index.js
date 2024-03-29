@@ -65,6 +65,7 @@
         currentAudio = audio;
     });
     });
+});
 
 
       ///VOLUME LECTEUR
@@ -78,10 +79,7 @@
     });
 });
 
-    
-  
-
-    // CODE PLAY MUSIQUE ONLCICK
+  // CODE PLAY MUSIQUE ONLCICK
 
     
     let Play = document.querySelector('#playMusiquePlay')

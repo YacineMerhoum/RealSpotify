@@ -391,3 +391,20 @@ a {
     width: 100px;
     background-size: cover;
 }
+
+@media screen and (max-width: 930px){
+
+    .flexa {
+        margin-top: 50%;
+        width: 90%;
+    }
+    
+}
+@media screen and (max-width: 930px){
+
+    .teste {
+        width: 90%;
+    }
+    
+}
+
